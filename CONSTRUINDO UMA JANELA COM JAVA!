@@ -1,0 +1,54 @@
+CONSTRUINDO UMA JANELA COM JAVA!
+
+PRIMEIRA DUVIDA:
+
+O QUE EU PRECISO PARA CONSTRUIR UMA JANELA EM JAVA?
+
+	O principal responsável pela elaboração de uma janela em java é um objeto
+	chamado JFrame, nele constam todas as propriedades e funções caracteristicas
+	de uma janela.
+	
+	A elaboração de uma janela pode ser realizada de diversas maneiras, mas 
+	inicialmente deve-se instanciar a classe JFrame, criando assim um objeto
+	que corresponde à uma janela invisivel. Para tornar a janela visível, 
+	o metodo "setVisible();" deve  
+
+O QUE É UM COMPONENTE E O QUE ELE FAZ?
+
+	Um componente consiste num objeto cuja funções se assemelha a uma peça 
+	que pode ser implementada por um corpo maior chamado de container, para 
+	que esse funcione adequadamente.
+
+O QUE É O COMPONENTE CANVA E O QUE ELE FAZ?
+
+	O componenete Canva é como se fosse uma peça de um grande mecanismo, o qual
+	associarei com a janela e consequentemente ao JFrame.
+	
+	No Canva é possivel anexar os "Listeners" que são interfaces capazes de 
+	sinais de teclado, mouse e outros.
+	
+	Além disso, o Canva possui função de pintura e outras caracteristicas de uma
+	janela, como dimensões e gráficos. Portanto, através do Canva podemos manipular
+	os Buffers operados por ele, que são outros elementos o quais serão abordados
+	posteriormente.
+
+COMO E ONDE EU USO O MÉTODO "setPreferredSize();"?
+
+	O método "setPreferredSize();" é um método correspondente da classe Canva 
+	cuja função é definir o tamanha desejado da área interna de uma janela.
+	
+	Para usar, deve-se retornar o objeto "Dimension" e passar as dimensões 
+	desejadas em seu construtor: Dimension(width, height);
+	
+	Recomenda-se usar esse método quando o JFrame, que é um container
+	opera com um objeto que administra o layout, como o Canva por exemplo.
+
+O QUE É UM LAYOUT MANAGER?
+
+O QUE É O MÉTODO pack() DO JFRAME?
+
+QUANDO EU DEVO USAR O MÉTODO pack() DO JFRAME?
+
+
+	
+	
