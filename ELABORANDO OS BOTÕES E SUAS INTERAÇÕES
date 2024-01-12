@@ -1,0 +1,40 @@
+ELABORANDO OS BOTÕES E MENUS, E SUAS INTERAÇÕES
+
+PERGUNTAS:
+
+É MEIO ÓBVIO, MAS O QUE SÃO OS BOTÕES, COMO FUNCIONAM?
+
+COMO ADICIONAR OS BOTÕES?
+
+COMO POSSO TROCAR DE "MENUS"?
+
+////////////////////////////////////////////////////////////////////////////
+
+O QUE EU DESCOBRI HOJE?
+
+	muita coisa na verdade, hoje foi mais um aprofundamento de ontem. Eu vi
+	mais ainda sobre componentes e containers e descobri varias coisas. 
+	
+	Vi que em Java, no Swing, existem três componentes top-level: o JFrame,
+	JApplet e JDialog. Fui recomendado a começar por elas e ler a documentação
+	para me orientar. Além disso orientaram-me à não usar o Canva para o propósito
+	desejado.
+	
+	Hoje me deparei com vários outros problemas, como erros na funcionalidade de 
+	botões por exemplo. Busquei ajuda no stackOverflow e tive respostar 
+	interessantes as quais me ajudaram bastante a traçar um rumo.
+
+	Tudo isso me levou a ler documentações sobre a construção de uma GUI através
+	do Swing no site da Oracle. Isso me fez perceber um pouco da complexidade, mas
+	o melhor de tudo foi que me deu uma visão do que eu preciso fazer.
+	
+	Basicamente, pelo o que eu li, temos o JFrame que é um container e que fará
+	uma hierarquia com outros elementos que "segurarão" outros componentes. 
+	Esses elemento são: a barra de menu e painel de conteúdo. Os outros 
+	componentes podem ser botões, paineis e etc. Vale relembrar que o JFrame é 
+	a base de toda essa hierarquia um ves que todos os outros estão contidos nele.
+
+
+
+
+

@@ -1,0 +1,17 @@
+ PROJETO GERAL DE ALGORITMO
+
+1-criar janela
+2-botão criar
+3-se: botão criar for pressionado, criar uma checklist
+	3.1-checklist precisa de um nome
+		-> criar campo de texto para o nome
+		-> mostrar campo de texto para o nome
+	3.2-checklist precisa de pelo menos uma task
+		-> criar uma lista
+		-> criar um botão para adicionar a task
+		-> mostrar as task em lista
+	3.3-checklist e seus dados precisam ser armazenados em algum lugar
+		-> criar botão de salvar
+		-> salvar os dador em um JSON, caso necessário estudar SQL.
+4-
+
