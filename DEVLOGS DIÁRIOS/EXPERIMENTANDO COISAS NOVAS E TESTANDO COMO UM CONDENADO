@@ -2,6 +2,22 @@ EXPERIMENTANDO COISAS NOVAS E TESTANDO COMO UM CONDENADO
 
 MINHAS DÚVIDAS:
 
+O QUE É UM FlowLayout?
+
+	O FlowLayout é o administrador de layouts mais simples existente, é o
+	LayoutManager padrão dos JPanel's e consiste numa disposição segmentada
+	de componentes de maneira linear. Quando o espaço é ultrapassado pula-se
+	uma linha e os componentes passam a ser dispostos na linha abaixo.
+	
+	Tomando como exemplos os JPanel's, ao usar o FlowLayout, usa-se o método
+	panel.add() para adicionar um componente ao painel seguindo a formatação
+	padrão do JPanel.
+	
+O QUE É UM BorderLayout?	
+
+	Um BorderLayout dispões os elementos nas bordas de um container qualquer
+	dividindo-se em quatro posições: norte, sul, leste, oeste e centro-oeste.
+
 O QUE EU FIZ HOJE:
 
 	Hoje eu usei o BorderLayout intensivamente pela primeira vez. Realizar 

@@ -3,6 +3,7 @@ package experiments.testClasses;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,6 +29,20 @@ public class ContentPaneTesting {
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.pink);
 //		panel.setPreferredSize(new Dimension(40,40));
+		
+		
+		
+		
+		//testing BorderLayout at a panel
+		JButton button = new JButton();
+		button.setPreferredSize(new Dimension(20,20));
+		panel.add(button);
+		
+		JButton button1 = new JButton();
+		button1.setPreferredSize(new Dimension(20,20));
+		panel.add(button1);
+		
+		
 		
 		JLabel label = new JLabel("my label");
 		label.setOpaque(true);
