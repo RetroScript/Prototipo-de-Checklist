@@ -1,8 +1,22 @@
  PROJETO GERAL DE ALGORITMO
 
 1-criar janela
-2-botão criar
+
+2-iniciar o menu principal
+
 3-se: botão criar for pressionado, criar uma checklist
+	3.0-alternar entre menus (DESCOBRIR COMO FAZER)
+		->fechar menu de entrada
+			->esconder botões
+			->alterar o layout
+		->abrir menu de criação
+			->criar botões
+			->mostrar botões
+			->criar caixas de texto
+			->mostrar caixa de texto
+			->criar tabela de lista
+			->mostrar tabela de lista
+
 	3.1-checklist precisa de um nome
 		-> criar campo de texto para o nome
 		-> mostrar campo de texto para o nome

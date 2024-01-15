@@ -1,9 +1,12 @@
+package experiments.testClasses;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
+import javax.swing.JPanel;
 
 public class FrameTesting {
 
@@ -22,16 +25,19 @@ public class FrameTesting {
 		JMenuBar myMenuBar = new JMenuBar();
 		myMenuBar.setOpaque(true);
 		myMenuBar.setBackground(Color.green);
-		myMenuBar.setPreferredSize(new Dimension(300, 100));
+		myMenuBar.setPreferredSize(new Dimension(300, 50));
 		
 		myFrame.setJMenuBar(myMenuBar);
 		myFrame.getContentPane().add(myLabel);
+		
+		JPanel myPanel = new JPanel(new BorderLayout());
+		
 		
 		myFrame.pack();
 		myFrame.setVisible(true);
 		
 	}
-	
+
 	public static void main(String [] args) {
 		
 		makeTheWindowAppear();

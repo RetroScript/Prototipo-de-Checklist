@@ -45,11 +45,29 @@ COMO E ONDE EU USO O MÉTODO "setPreferredSize();"?
 
 O QUE É UM LAYOUT MANAGER?
 
+	Um layout manager serve para admistrar o posicionamento dos componentes
+	internor de um container de alto nivel qualquer. O uso de layout managers
+	é altamente recomendada para quem está começando a programar recursos de 
+	interface gráfica do usuário.
+	
+	Os layout managers são tanto definidos pelo programador, dando 
+	origem aos layouts personalizados, quanto adquiridos através do 
+	conteúdo da própria linguagem, correspondendo assim aos layouts 
+	predefinidos. Além disso também é possível não usar layout num frame, o 
+	que aparenta requerir bastante habilidade e experiencia.
+
 O QUE É O MÉTODO pack() DO JFRAME?
 
-	
+	O metodo pack fará com que a janela adapte seu tamanho a todos os seus 
+	subcomponentes, como paineis, menus e etc. O tamanho minimo da janela
+	e definido em torno de seu conteudo 
 
 QUANDO EU DEVO USAR O MÉTODO pack() DO JFRAME?
+
+	Provavelmente quando eu não precisar de um tamanho fixo, ou quiser que o
+	minimo de espaço disponível seja o suficiente para conter os elementos 
+	desejados
+	
 
 ////////////////////////////////////////////////////////////////////////////
 
