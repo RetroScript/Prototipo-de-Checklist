@@ -1,17 +1,30 @@
 package experiments.testClasses;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ContentPaneTesting {
 
+	//O QUE É O Content Pane?
+		/*
+		 * O Content Pane é uma das áreas do JFrame, um container de alto 
+		 * nivel do swing, onde os elementos de interface são dispostos.
+		 * 
+		 * O Content Pane faz parte de uma hierarquia patenteado pelo JFrame
+		 * e todos os componentes que estão contidos nele estão abaixo dele
+		 * nessa "piramide".
+		 * 
+		 * Para se adicionar algo ao Content Pane, usa-se o método 
+		 * getContentPane.add(nomeDoComponente);
+		 * 
+		 * Para se definir algum elemento como Content Pane, usa-se o método
+		 * setContentPane(nomeDoComponente);
+		 */
+	
 	public static void main(String [] args) {
 		
 		InitFrameAndContents();
@@ -20,61 +33,41 @@ public class ContentPaneTesting {
 	
 	public static void InitFrameAndContents() {
 		
-		final int cWIDTH = 50;
-		final int cHEIGHT = 50;
-		
+		//Cria um frame com nome e tamanho desejado
 		JFrame frame = new JFrame("my frame!");
 		frame.setPreferredSize(new Dimension(300,300));
 		
+		//Cria um painel, capaz de segurar outros componentes, dispondo-os
+		//em linhas através do FlowLayout, LayoutManager padrão dos JPanel's
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.pink);
-//		panel.setPreferredSize(new Dimension(40,40));
 		
+		//define o JPanel panel como o Content Pane -painel de conteúdo- 
+		//do JFrame
+		frame.setContentPane(panel);
 		
+		//Adiciona o JPanel panel ao JFrame em paralelo com o Content Pane, 
+		//o que pode dar erro de hierarquia
+//		frame.add(panel);
 		
-		
-		//testing BorderLayout at a panel
-		JButton button = new JButton();
-		button.setPreferredSize(new Dimension(20,20));
-		panel.add(button);
-		
-		JButton button1 = new JButton();
-		button1.setPreferredSize(new Dimension(20,20));
-		panel.add(button1);
-		
-		
-		
-		JLabel label = new JLabel("my label");
+		//Cria, configura, e adiciona uma JLabel label ao Content Pane que 
+		//agora é o JPanel panel, que está contido pelo JFrame frame
+		JLabel label = new JLabel("comp 1");
 		label.setOpaque(true);
-		label.setBackground(Color.cyan);
-		label.setPreferredSize(new Dimension(cWIDTH,cHEIGHT));
+		label.setBackground(Color.blue);
+		label.setPreferredSize(new Dimension(20,20));
+		frame.getContentPane().add(label);
 		
-		JLabel label1 = new JLabel("my label 1");
-		label1.setOpaque(true);
-		label1.setBackground(Color.yellow);
-		label1.setPreferredSize(new Dimension(cWIDTH,cHEIGHT));
-		
-		JLabel label2 = new JLabel("my label 2");
+		//Também cria, configura, e adiciona uma JLabel label2 ao 
+		//Content Pane em seguida ao JLabel label através do FlowLayout.
+			//Agora note a disposição dos objetos, a sua segmentação 
+			//é resultado do FlowLayout, que é padrão do JPanel.
+		JLabel label2 = new JLabel("comp 2");
 		label2.setOpaque(true);
-		label2.setBackground(Color.magenta);
-		label2.setPreferredSize(new Dimension(cWIDTH,cHEIGHT));
+		label2.setBackground(Color.cyan);
+		label2.setPreferredSize(new Dimension(20,20));
+		frame.getContentPane().add(label2);
 		
-		JLabel label3 = new JLabel("my label 3");
-		label3.setOpaque(true);
-		label3.setBackground(Color.black);
-		label3.setPreferredSize(new Dimension(cWIDTH,cHEIGHT));
-		
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		
-		frame.getContentPane().add(label3, BorderLayout.SOUTH);
-		frame.getContentPane().add(label2, BorderLayout.NORTH);
-		frame.getContentPane().add(label1, BorderLayout.WEST);
-		frame.getContentPane().add(label, BorderLayout.EAST);
-		
-//		frame.getContentPane().add(label3);
-//		frame.getContentPane().add(label2);
-//		frame.getContentPane().add(label1);
-//		frame.getContentPane().add(label);
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();

@@ -73,17 +73,18 @@ QUANDO EU DEVO USAR O MÉTODO pack() DO JFRAME?
 
 O QUE EU APRENDI HOJE?
 
-descobri que para fazer um frame não é necessário o uso da classe Canva
-como superclasse da Main e que na verdade o Canva se trata apenas de um 
-componente cuja função é mostrar e renderizar gráficos, podendo ser 
-"aclopado" ao JFrame, real responsável pelo funcionamento construção de 
-uma janela. Portanto para criar uma janela, somente a classe JFrame é 
-necessária.
-
-Também descobri mais acerca dos componentes e como eles funcionam. Em Java
-os componentes são aqueles que herdam atributos e funções da classe Component,
-e estes podem se associar à outras classes mais complexas chamadas containers, 
-as quais possuem dois ou mais componentes em sua composição. 
+	descobri que para fazer um frame não é necessário o uso da classe Canva
+	como superclasse da Main e que na verdade o Canva se trata apenas de um 
+	componente cuja função é mostrar e renderizar gráficos, podendo ser 
+	"aclopado" ao JFrame, real responsável pelo funcionamento construção de 
+	uma janela. Portanto para criar uma janela, somente a classe JFrame é 
+	necessária.
+	
+	Também descobri mais acerca dos componentes e como eles funcionam. Em Java
+	os componentes são aqueles que herdam atributos e funções da classe 
+	Component, e estes podem se associar à outras classes mais complexas 
+	chamadas containers, as quais possuem dois ou mais componentes em sua 
+	composição. 
 
 
 	

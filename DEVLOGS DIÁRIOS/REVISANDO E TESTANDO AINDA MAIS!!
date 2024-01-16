@@ -1,0 +1,45 @@
+REVISANDO E TESTANDO AINDA MAIS!! -- 15/01/2024
+
+MINHAS DÚVIDAS:
+
+O QUE É UM CARD LAYOUT?
+
+O QUE É UM TABBED PANE?
+
+COMO POSSO FAZER VARIAS TELAS COM O TABBED PANE E CARD LAYOUT?
+
+O QUE É UM ComboBox?
+
+COMO EU POSSO FAZER E USAR UM ComboBox?
+
+/////////////////////////////////////////////////////////////////////////////
+
+O QUE EU FIZ HOJE?
+	
+	Hoje eu li bastante documentações e rodei várias demonstrações de 
+	componentes e layouts feitas pela oracle
+	
+	Dei uma leve reorganizada no código já existente e implementei mais testes.
+	
+	Revisei o código sobre ContentPane e BorderLayout e fiz algumas 
+	alterações separando o código e criando novas classes.
+	
+
+/////////////////////////////////////////////////////////////////////////////
+
+O QUE EU APRENDI HOJE?
+
+	Aprendi que ComboBoxes são bastante úteis embora muito complexas e que 
+	estas podem ser usadas em layouts como um card layout, portanto, antes
+	de me aprofundar sobre CardLayout, buscarei respostas para o funcionamento
+	de uma ComboBox e suas várias utilidades.
+	
+	Vi tabém que a combo boxes podem ter opções editáveis e possuir um 
+	ActionListener anexado a elas.
+	
+	Além disso descobri o que seria um tabbed pane, que é uma alternativa
+	mais simples ao CardLayout pois possui seus próprios parametros e 
+	comportamentos, não necessitando do uso de uma ComboBox para se feito
+	
+	Amanhã pretendo me aprofundar nos Cardlayouts e TabbedPanes para que eu 
+	possa ja ter uma noção de como fazer minha interface.
