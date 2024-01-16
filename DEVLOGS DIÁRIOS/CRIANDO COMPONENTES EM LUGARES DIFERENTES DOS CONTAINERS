@@ -1,0 +1,42 @@
+CRIANDO COMPONENTES EM LUGARES DIFERENTES DOS CONTAINERS
+
+ALGUMA DUVIDA? QUAIS FORAM:
+
+/////////////////////////////////////////////////////////////////////////////
+
+O QUE EU FIZ HOJE?
+
+	Hoje eu passei boa parte do meu tempo estudando um código fornecido
+	pela Oracle. O programa em questão é o ComboBoxDemo.Java que pode ser
+	encontrado em:
+	
+	https://docs.oracle.com/javase/tutorial/uiswing/examples/components/ComboBoxDemoProject/src/components/ComboBoxDemo.java
+
+	Fiz mais Classes que não só desmontam partes específicas desse código
+	mas também as estudam. O propósito geral dessas Classes de experimentos
+	são os testes e os resultados que podem ser obtido.
+	
+	Uma das novas Classes é a ContentPaneTesting2.java que visa a análise 
+	de uma alternativa de inserção de componentes dentro de um Content Pane
+	-Painel de Conteúdo- proposta pelas documentações da Oracle.
+
+/////////////////////////////////////////////////////////////////////////////
+
+O QUE EU APRENDI HOJE?
+
+	Vi, após conferir nas documetações, em alguns fórums e sites de P&R's
+	que ao Extender um componente qualquer, a classe que o herda possui seus 
+	mesmos comportamentos, funções e atributos. Sendo assim, ao Herdar um 
+	componente qualquer, a Classe Filha se torna um objeto de mesma espécie,
+	ou seja, um componente. Isso pode ser útil a partir do momento em que se
+	torna inconveniente a criação de uma instancia global para adicionar um 
+	subcomponente dentro de outro componente. Além disso, pode viabilizar um
+	código mais flexivel.
+	
+	O uso de herança dessa maneira responde, de certa forma, as primeiras 
+	"perguntas" realizadas durante a criação desse projeto. 
+
+	Descobri que o FlowLayout adota uma espécie de borda invisível usando de 
+	um espaço vazio ao redor dos componentes por ele dispostos.
+	
+	

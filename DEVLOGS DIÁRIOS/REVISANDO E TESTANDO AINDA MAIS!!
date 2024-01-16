@@ -4,13 +4,35 @@ MINHAS DÚVIDAS:
 
 O QUE É UM CARD LAYOUT?
 
+	
+
 O QUE É UM TABBED PANE?
 
 COMO POSSO FAZER VARIAS TELAS COM O TABBED PANE E CARD LAYOUT?
 
 O QUE É UM ComboBox?
 
+	uma combobox é um componente do swing que exibe um menu com 
+	diversas opções pré-programadas para o usuário escolher.
+	
+	uma combobox pode adicionar um ActionListener para que quando 
+	uma ação for realizada, como a escolha de uma das opções,
+	algo aconteça.
+	
+	uma ComboBox também pode ser usada em conjunto com CardLayout's,
+	que alteram a exibição de determinados grupos de componentes a 
+	partir do estado da ComboBox, o que é realizado com o uso de um
+	ActionListener.
+	 
+	Essa classe não irá só criar uma ComboBox, mas usá-la para conferir
+	seus estados e a partir destes mudar um dos componentes dentro 
+	da JFrame.
+
 COMO EU POSSO FAZER E USAR UM ComboBox?
+
+COMO POSSO USAR UM ActionListener?
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 

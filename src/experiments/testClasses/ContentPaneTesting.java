@@ -56,7 +56,7 @@ public class ContentPaneTesting {
 		label.setOpaque(true);
 		label.setBackground(Color.blue);
 		label.setPreferredSize(new Dimension(20,20));
-		frame.getContentPane().add(label);
+		frame.getContentPane().add(label);//pega o CP e adiciona a label
 		
 		//Também cria, configura, e adiciona uma JLabel label2 ao 
 		//Content Pane em seguida ao JLabel label através do FlowLayout.
@@ -66,7 +66,7 @@ public class ContentPaneTesting {
 		label2.setOpaque(true);
 		label2.setBackground(Color.cyan);
 		label2.setPreferredSize(new Dimension(20,20));
-		frame.getContentPane().add(label2);
+		frame.getContentPane().add(label2);//pega CP e adiciona a label
 		
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
