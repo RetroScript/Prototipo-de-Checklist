@@ -37,7 +37,7 @@ public class ComboBoxTesting{
 		//Seu tamanho pode ser definido com o setPreferedSize();
 		//O index pode ser definido com o setSelectedIndex();
 		JComboBox<String> cb = new JComboBox<String>(comboBoxOptions);
-		cb.setPreferredSize(new Dimension(100,50));
+		cb.setPreferredSize(new Dimension(300,300));
 		cb.setSelectedIndex(2);
 		
 		//Adiciona a ComboBox ao Content Pane

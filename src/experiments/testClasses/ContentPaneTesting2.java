@@ -28,7 +28,8 @@ public class ContentPaneTesting2 extends JPanel{
 	//Ao instanciar a Classe esse método é chamado. Os atributos e 
 	//comportamentos de um método construtor podem ser atribuidos a um
 	//Objeto de Natureza Semelhante - que herda uma classe em comum -
-	public ContentPaneTesting2() {
+	public ContentPaneTesting2() { 
+		
 		//inicializa e configura a label - que é um Objeto Global-
 		label = new JLabel();
 		label.setOpaque(true);

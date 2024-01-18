@@ -10,8 +10,6 @@ import javax.swing.JPanel;
 
 public class FrameTesting {
 
-	
-	
 	public static void makeTheWindowAppear() {
 		
 		JFrame myFrame = new JFrame("just testing the top-level containers");
