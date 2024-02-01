@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 public class Main extends JPanel implements ActionListener, ItemListener{
 	
 	public JPanel cardsP;
+	public JPanel card1;
+	public JPanel card2;
 	public final int WIDTH = 500;
 	public final int HEIGHT = 350;
 	
@@ -26,7 +28,7 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		cbPanel.setPreferredSize(new Dimension(0,150));
 		cbPanel.setBackground(Color.lightGray);
 		
-		String cbOptions[] = {"CARD1", "CARD2"};
+		String cbOptions[] = {"CHECKLIST ATUAL", "CHECKLIST ANTERIOR"};
 		JComboBox cb = new JComboBox(cbOptions);
 		cb.setPreferredSize(new Dimension(300,100));
 		cb.addItemListener(this);
@@ -36,10 +38,13 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		cardsP.setBackground(Color.pink);
 		cardsP.setPreferredSize(new Dimension(0, 200));
 		
-		JPanel card1 = new JPanel();
+		//mostre a Checklist Atual e suas tasks
+		//Caso não haja nenhuma ainda, sugira criar um checkList
+		card1 = new JPanel();
 		card1.setBackground(Color.cyan);
-		
-		JPanel card2 = new JPanel();
+				
+		//mostra todas as CheckLists já criadas
+		card2 = new JPanel();
 		card2.setBackground(Color.magenta);
 		
 		
@@ -53,6 +58,7 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		
 		
 	}
+
 	
 	public void initFrame() {
 		JFrame frame = new JFrame("CheckList Program!");
