@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Main extends JPanel implements ActionListener, ItemListener{
 	
@@ -20,6 +21,14 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 	public JPanel card2;
 	public final int WIDTH = 500;
 	public final int HEIGHT = 350;
+	
+	public JTextField nomeAtual;
+	public JTextField nomeAnterior;
+	
+	public JTextField task1;
+	public JTextField task2;
+	public JTextField task3;
+	
 	
 	public Main() {
 		super(new BorderLayout());
@@ -42,11 +51,28 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		//Caso não haja nenhuma ainda, sugira criar um checkList
 		card1 = new JPanel();
 		card1.setBackground(Color.cyan);
-				
+		
+		nomeAtual = new JTextField(20);
+		nomeAtual.setBackground(Color.orange);
+		nomeAtual.addActionListener(this);	
+		
+		task1 = new JTextField(20);
+		task2 = new JTextField(20);
+		task3 = new JTextField(20);
+		
+		card1.add(nomeAtual);
+		card1.add(task1);
+		card1.add(task2);
+		card1.add(task3);
+		
 		//mostra todas as CheckLists já criadas
 		card2 = new JPanel();
 		card2.setBackground(Color.magenta);
 		
+		nomeAnterior = new JTextField(20);
+		nomeAnterior.setBackground(Color.pink);
+		nomeAnterior.addActionListener(this);
+		card2.add(nomeAnterior);
 		
 		cardsP.add(card1, cbOptions[0]);
 		cardsP.add(card2, cbOptions[1]);
@@ -56,7 +82,8 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		add(cbPanel, BorderLayout.NORTH);
 		add(cardsP, BorderLayout.SOUTH);
 		
-		
+//		add(cbPanel);
+//		add(cardsP);
 	}
 
 	
@@ -77,7 +104,7 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		
+		System.out.println(nomeAtual.getText());
 	}
 
 	@Override

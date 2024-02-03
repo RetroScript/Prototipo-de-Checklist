@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class CardLayoutWCBTesting implements ItemListener{
+public class CardLayoutTesting implements ItemListener{
 
 	public static void main(String [] args) {
 		initFrameAndContents();
@@ -26,32 +26,22 @@ public class CardLayoutWCBTesting implements ItemListener{
 		final String BUTTONPANEL = "panel 1 with button";
 		final String LABELPANEL = "panel 2 with label";
 		
-		String comboBoxItems[] = {BUTTONPANEL, LABELPANEL};
-		JComboBox cb = new JComboBox(comboBoxItems);
-		cb.setEditable(false);
-//		cb.addItemListener();
-		
-		JButton button = new JButton();
-		button.setPreferredSize(new Dimension(20,20));
-		
-		JLabel label = new JLabel();
-		label.setOpaque(true);
-		label.setBackground(Color.black);
-		label.setPreferredSize(new Dimension(20,20));
-		
 		JPanel panel = new JPanel(new CardLayout());
-		
+		 
 		JPanel card1 = new JPanel();
-		card1.add(button);
-		
+		card1.add(new JButton("card1"));
 		JPanel card2 = new JPanel();
-		card2.add(label);
-		
+		card2.add(new JLabel("card2"));
 		
 		panel.add(card1, BUTTONPANEL);
 		panel.add(card2, LABELPANEL);
 		frame.getContentPane().add(panel);
 	
+		//Cria um gerenciador de layout, tendo como base o layout do panel.
+		CardLayout CL = (CardLayout)(panel.getLayout());
+		CL.show(panel, BUTTONPANEL);
+//		CL.show(panel, LABELPANEL);
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);

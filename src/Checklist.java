@@ -1,18 +1,13 @@
 
 public class Checklist {
 
-	private String selectedName;
-	
-	public String[] tasks;
-	
-	
-	
-	public Checklist(String name) {
-		selectedName = name;
-	}
-	
-	public void showTaskList() {
+	private String name;
+	private String tasks[];
 		
+	private final int tasksNumber = 3;
+	
+	public Checklist(String selectedName) {
+		name = selectedName;
 	}
 	
 	public void createTask(String taskName) {

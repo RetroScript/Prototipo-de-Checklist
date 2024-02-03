@@ -5,5 +5,25 @@ imaginar. Minhas expectativas cairam por terra justo no primeiro dia: eu
 descobri que haviam muitas coisas básicas que eu ainda precisaria aprender 
 antes de construir algo útil. 
 	Meu primeiro problema foi com os componentes e os botões, depois de 
-pesquisar mais a fundo, e praticamente levar um tapa na cara no stackOverflow, eu criei vergonha e comecei a ler as documentações dos elementos
-mais básicas de programação relacionada a Interface Gráfica do Usuário.
+pesquisar mais a fundo, e praticamente levar um tapa na cara no stackOverflow, 
+eu criei vergonha e comecei a ler as documentações dos elementos mais 
+básicas de programação relacionada a Interface Gráfica do Usuário. Após isso
+eu praticamente decolei, fiz dezenas de testes que tiveram mais avanço que o 
+próprio projeto em si. Se por um lado isso é bom, uma vez que eu estou 
+estudando e práticando diversos assuntos, por um outro ponto de vista essas 
+práticas podem ser facilmente tomadas como mal uso de tempo. De um modo geral
+estou começando a pensar que o melhor a se fazer é colocar os projeto de volta 
+nos trilhos e desenvolver a aplicação previamente planejada com o minimo de
+recursos possivel.
+	Levando em consideração a ideia de simplificar o projeto, a nova premissa 
+consistirá, basicamente, numa aplicação de lista de afazeres com duas abas,
+um dedicada à uma lista atual e outra à uma lista anterior. O programa 
+precisará serializar os objetos que representam as listas que o usário criou, 
+para que quando ele feche o programa elas simplesmente não desapareçam. As 
+listas anteriores contem dados temporários que serã reescritos assim que uma 
+lista atual for concluida. Uma lista atual é concluida quando todas as suas 
+metas são cumpridas. Todas as listas possuem um títula e até três objetivo a serem 
+concluidos.
+	Portanto, a partir daqui, a maioria dos testes envolveram o escopo original
+do projeto, onde de fato tudo será executado. Em virtude disto, a quantidade 
+de commits aumentarão significativamente.

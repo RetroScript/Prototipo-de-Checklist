@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class ContentPaneTesting2 extends JPanel{
 
-	//ADICIONANDO AO Content Pane DE OUTRA FORMA!!
+	//ADICIONANDO COMPONENTS AO Content Pane DE OUTRA FORMA!!
 		/*
 		 * Para se adicionar algo ao Content Pane primeiro é necessário 
 		 * considerar a hierarquia entre os componentes internos de um
@@ -26,8 +26,9 @@ public class ContentPaneTesting2 extends JPanel{
 	public JLabel label;
 	
 	//Ao instanciar a Classe esse método é chamado. Os atributos e 
-	//comportamentos de um método construtor podem ser atribuidos a um
-	//Objeto de Natureza Semelhante - que herda uma classe em comum -
+	//comportamentos internos de um método construtor podem ser atribuidos a 
+	//um Objeto externo de Natureza Semelhante 
+	//- que herda uma classe em comum -
 	public ContentPaneTesting2() { 
 		
 		//inicializa e configura a label - que é um Objeto Global-
@@ -57,10 +58,21 @@ public class ContentPaneTesting2 extends JPanel{
 		
 		//Criação de um novo componente, com os Objetos de Componentes,
 		//que servirá como Content Pane. 
-		//Define-se como opaco e como Content Pane
+		//Define-se o componente como opaco e como Content Pane
 		JComponent myContentPane = new ContentPaneTesting2();
 		myContentPane.setOpaque(true);
+		
+		//método do Java que transforma qualquer **componente-container
+		//em Content Pane
 		frame.setContentPane(myContentPane);
+		
+			//Atente-se que, somente incializamos os componentes ao 
+			//instanciar a classe, o que ocorre dentro desse método:
+			//initFrame();	
+			
+			//Além disso, devido a herança com um JPanel, 
+			//ao instanciar a minha classe ContentPaneTesting2 eu estarei 
+			//criando um JPanel com algumas "customizações".
 		
 		//defina para encerrar ao fechar, recalcula o tamanho, fica visível
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,6 +82,7 @@ public class ContentPaneTesting2 extends JPanel{
 	
 	public static void main(String[] args) {
 		
+		//inicializa o frame e seus componentes
 		initFrame();
 		
 	}
