@@ -8,6 +8,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -29,6 +32,8 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 	public JTextField task2;
 	public JTextField task3;
 	
+	public JButton criar;
+	public JButton concluir;
 	
 	public Main() {
 		super(new BorderLayout());
@@ -50,20 +55,46 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		//mostre a Checklist Atual e suas tasks
 		//Caso não haja nenhuma ainda, sugira criar um checkList
 		card1 = new JPanel();
+		card1.setLayout(new BoxLayout(card1, BoxLayout.PAGE_AXIS));
 		card1.setBackground(Color.cyan);
+		
+		JPanel card1Buttons= new JPanel();
+		card1Buttons.setLayout(new BoxLayout(card1Buttons, BoxLayout.LINE_AXIS));
+		card1Buttons.setBackground(Color.lightGray);
 		
 		nomeAtual = new JTextField(20);
 		nomeAtual.setBackground(Color.orange);
 		nomeAtual.addActionListener(this);	
 		
+		criar = new JButton("Criar Nova checkList");
+		criar.setFocusable(false);
+		criar.addActionListener(this);
+		concluir = new JButton("Concluir CheckList atual");
+		concluir.setFocusable(false);
+		concluir.addActionListener(this);
+		
 		task1 = new JTextField(20);
 		task2 = new JTextField(20);
 		task3 = new JTextField(20);
 		
+		
 		card1.add(nomeAtual);
+		card1.add(Box.createRigidArea(new Dimension(0,5)));
 		card1.add(task1);
+		card1.add(Box.createRigidArea(new Dimension(0,5)));
 		card1.add(task2);
+		card1.add(Box.createRigidArea(new Dimension(0,5)));
 		card1.add(task3);
+		
+		card1Buttons.add(Box.createRigidArea(new Dimension(25,0)));
+		card1Buttons.add(criar);
+		card1Buttons.add(Box.createHorizontalGlue());
+		card1Buttons.add(concluir);
+		card1Buttons.add(Box.createRigidArea(new Dimension(25,0)));
+		
+		card1.add(Box.createRigidArea(new Dimension(0,15)));
+		card1.add(card1Buttons);
+		
 		
 		//mostra todas as CheckLists já criadas
 		card2 = new JPanel();
@@ -86,6 +117,8 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 //		add(cardsP);
 	}
 
+	
+	
 	
 	public void initFrame() {
 		JFrame frame = new JFrame("CheckList Program!");
