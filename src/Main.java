@@ -3,6 +3,7 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +30,7 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 	public JTextField nomeAtual;
 	public JTextField nomeAnterior;
 	
+	public final int tasksNumber = 3;
 	public JTextField task1;
 	public JTextField task2;
 	public JTextField task3;
@@ -68,36 +70,22 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		card1Buttons.setLayout(new BoxLayout(card1Buttons, BoxLayout.LINE_AXIS));
 		card1Buttons.setBackground(Color.lightGray);
 		
-		
-		
 		criar = new JButton("Criar Nova checkList");
 		criar.setFocusable(false);
 		criar.addActionListener(this);
 		concluir = new JButton("Concluir CheckList atual");
 		concluir.setFocusable(false);
 		concluir.addActionListener(this);
+	
 		
-		nomeAtual = new JTextField(20);
-		nomeAtual.setMaximumSize(new Dimension(450,100));
-		nomeAtual.setBackground(Color.orange);
-		nomeAtual.addActionListener(this);	
 		
-		task1 = new JTextField(20);
-		task1.setMaximumSize(new Dimension(450,50));
-		task2 = new JTextField(20);
-		task2.setMaximumSize(new Dimension(450,50));
-		task3 = new JTextField(20);
-		task3.setMaximumSize(new Dimension(450,50));
+		addTextFields(450, 100, Color.orange, card1);
 		
-		card1.add(Box.createRigidArea(new Dimension(0,5)));
-		card1.add(nomeAtual);
-		card1.add(Box.createRigidArea(new Dimension(0,5)));
-		card1.add(task1);
-		card1.add(Box.createRigidArea(new Dimension(0,5)));
-		card1.add(task2);
-		card1.add(Box.createRigidArea(new Dimension(0,5)));
-		card1.add(task3);
-		card1.add(Box.createRigidArea(new Dimension(0,5)));
+		for(int i = 0; i < tasksNumber; i++) {
+			addTextFields(450, 50, Color.white, card1);
+		}
+		
+		
 		
 		card1Buttons.add(Box.createHorizontalGlue());
 		card1Buttons.add(criar);
@@ -105,7 +93,7 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		card1Buttons.add(concluir);
 		card1Buttons.add(Box.createHorizontalGlue());
 		
-		
+		card1.add(Box.createRigidArea(new Dimension(0,5)));
 		card1.add(card1Buttons);
 		
 		
@@ -129,7 +117,15 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 
 	}
 
-	
+	public void addTextFields(int width, int height, Color col, Container panel) {
+		
+		JTextField textField = new JTextField();
+		textField.setMaximumSize(new Dimension(width, height));
+		textField.setBackground(col);
+		
+		panel.add(Box.createRigidArea(new Dimension(0,5)));
+		panel.add(textField);
+	}
 	
 	public void initFrame() {
 		JFrame frame = new JFrame("CheckList Program!");
