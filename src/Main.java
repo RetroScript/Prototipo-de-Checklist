@@ -41,11 +41,11 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 	
 	public Main() {
 		
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		
 		JPanel selectionPanel = new JPanel();
-		selectionPanel.setLayout(new BoxLayout(selectionPanel, BoxLayout.X_AXIS));
-		selectionPanel.setPreferredSize(new Dimension(0,100));
+		selectionPanel.setLayout(new BoxLayout(selectionPanel, BoxLayout.LINE_AXIS));
+		selectionPanel.setPreferredSize(new Dimension(700,100));
 		selectionPanel.setBackground(Color.BLUE);
 		
 		String cbOptions[] = {"CHECKLIST ATUAL", "CHECKLIST ANTERIOR"};
@@ -54,34 +54,26 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		selector.setAlignmentY(Component.CENTER_ALIGNMENT);
 		selector.addItemListener(this);
 
-		selectionPanel.add(Box.createHorizontalGlue());
+		selectionPanel.add(Box.createRigidArea(new Dimension(50,0)));
 		selectionPanel.add(selector);
-		selectionPanel.add(Box.createHorizontalGlue());
+		selectionPanel.add(Box.createRigidArea(new Dimension(50,0)));
 		
 		cardsP = new JPanel(new CardLayout());
 		cardsP.setBackground(Color.pink);
-		cardsP.setPreferredSize(new Dimension(0, 200));
+		cardsP.setMaximumSize(new Dimension(WIDTH - 50, 500));
 		
 		//mostre a Checklist Atual e suas tasks
 		//Caso não haja nenhuma ainda, sugira criar um checkList
 		card1 = new JPanel();
-		card1.setLayout(new BoxLayout(card1, BoxLayout.PAGE_AXIS));
 		card1.setBackground(Color.cyan);
 		
 		card2 = new JPanel();
 		card2.setBackground(Color.magenta);
 		
-		
-		JPanel card1TextFields = new JPanel();
-		card1TextFields.setLayout(new BoxLayout(card1TextFields, BoxLayout.Y_AXIS));
-		card1TextFields.setMaximumSize(new Dimension(450,250));
-		card1TextFields.setBackground(Color.red);
-		
-		addTextFields(200, 100, Color.orange, card1TextFields);
-		
-		for(int i = 0; i < tasksNumber; i++) {
-			addTextFields(200, 50, Color.white, card1TextFields);
-		}
+		JPanel dataInput = new JPanel();
+		dataInput.setLayout(new BoxLayout(dataInput, BoxLayout.PAGE_AXIS));
+		dataInput.setPreferredSize(new Dimension(450,200));
+		dataInput.setBackground(Color.red);
 		
 		JPanel card1Buttons = new JPanel();
 		card1Buttons.setLayout(new BoxLayout(card1Buttons, BoxLayout.LINE_AXIS));
@@ -101,17 +93,21 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		card1Buttons.add(concluir);
 		card1Buttons.add(Box.createHorizontalGlue());
 		
-		card1.add(Box.createRigidArea(new Dimension(0,5)));
-		card1.add(card1TextFields);
-		card1.add(Box.createRigidArea(new Dimension(0,5)));
+//		card1.add(Box.createRigidArea(new Dimension(0,7)));
+		card1.add(dataInput);
+//		card1.add(Box.createRigidArea(new Dimension(0,25)));
 		card1.add(card1Buttons);
 		
 		cardsP.add(card1, cbOptions[0]);
 		cardsP.add(card2, cbOptions[1]);
 		
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		add(selectionPanel, Box.CENTER_ALIGNMENT);
-		add(cardsP, Box.CENTER_ALIGNMENT);
+		
+		add(Box.createRigidArea(new Dimension(0, 15)));
+		add(selectionPanel);
+		add(Box.createRigidArea(new Dimension(0, 15)));
+		add(cardsP);
+		add(Box.createRigidArea(new Dimension(0, 15)));
 		
 		
 
