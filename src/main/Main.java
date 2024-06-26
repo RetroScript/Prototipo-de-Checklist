@@ -78,15 +78,20 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		
 //		/////
 		
-		JTextField nome = new JTextField(20);
-		JTextField t1 = new JTextField(20);
-		JTextField t2 = new JTextField(20);
-		JTextField t3 = new JTextField(20);
+		nomeAtual = new JTextField(20);
+		task1 = new JTextField(20);
+		task1.setMaximumSize(new Dimension(20,20));
 		
-		dataInput.add(nome);
-		dataInput.add(t1);      
-		dataInput.add(t2);      
-		dataInput.add(t3);      
+		task2 = new JTextField(20);
+		task2.setMaximumSize(new Dimension(20,20));
+		
+		task3 = new JTextField(20);
+		task3.setMaximumSize(new Dimension(20,20));
+		
+		dataInput.add(nomeAtual);
+		dataInput.add(task1);      
+		dataInput.add(task2);      
+		dataInput.add(task3);      
 		
 		JPanel card1Buttons = new JPanel();
 		card1Buttons.setLayout(new BoxLayout(card1Buttons, BoxLayout.LINE_AXIS));
