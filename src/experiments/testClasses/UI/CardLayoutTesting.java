@@ -1,4 +1,4 @@
-package experiments.testClasses;
+package experiments.testClasses.UI;
 
 import java.awt.CardLayout;
 import java.awt.Color;

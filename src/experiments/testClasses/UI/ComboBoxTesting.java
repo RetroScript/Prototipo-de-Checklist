@@ -1,4 +1,4 @@
-package experiments.testClasses;
+package experiments.testClasses.UI;
 
 import java.awt.Dimension;
 
@@ -7,18 +7,18 @@ import javax.swing.JFrame;
 
 public class ComboBoxTesting{
 
-	//O QUE É UMA ComboBox?
+	//O QUE ï¿½ UMA ComboBox?
 		/*
-		 * uma combobox é um componente do swing que exibe um menu com 
-		 * diversas opções pré-programadas para o usuário escolher.
+		 * uma combobox ï¿½ um componente do swing que exibe um menu com 
+		 * diversas opï¿½ï¿½es prï¿½-programadas para o usuï¿½rio escolher.
 		 *
 		 * uma combobox pode adicionar um ActionListener para que quando 
-		 * uma ação for realizada, como a escolha de uma das opções,
-		 * algo aconteça. Isso será aprofundado mais tarde, com a elaboração
+		 * uma aï¿½ï¿½o for realizada, como a escolha de uma das opï¿½ï¿½es,
+		 * algo aconteï¿½a. Isso serï¿½ aprofundado mais tarde, com a elaboraï¿½ï¿½o
 		 * de outros experimentos.
 		 * 
 		 * Essa Classe tem como objetivo mostrar, de modo superficial
-		 * o funcionamento básico de uma ComboBox
+		 * o funcionamento bï¿½sico de uma ComboBox
 		 */
 	
 	public static void main(String [] args) {
@@ -29,10 +29,10 @@ public class ComboBoxTesting{
 		
 		JFrame frame = new JFrame("ComboBoxTestinf");
 		
-		//Uma array com as opções que uma ComboBox pode ter
+		//Uma array com as opï¿½ï¿½es que uma ComboBox pode ter
 		String comboBoxOptions[] = {"option1", "option2", "option3"};
 		
-		//Cria uma ComboBox com o nome de cb e com as opções correspondentes
+		//Cria uma ComboBox com o nome de cb e com as opï¿½ï¿½es correspondentes
 		//ao nomes da Array comboBoxOptions[].
 		//Seu tamanho pode ser definido com o setPreferedSize();
 		//O index pode ser definido com o setSelectedIndex();

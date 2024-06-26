@@ -5,6 +5,18 @@ public class CheckList {
 	private String preferredName;
 	private String[] tasks;
 	
+	public void deleteChecklist() {
+		
+	}
+	
+	public void saveChecklist() {
+		
+	}
+	
+	public void loadChecklist() {
+		
+	}
+	
 	public CheckList(String name, String task1, String task2, String task3) {
 		tasks = new String[3];
 		//tasks[2] = new String(); -> INCORRETO!
@@ -17,7 +29,7 @@ public class CheckList {
 		
 	}
 	
-	public void addChecklistToFrame() {
+	public void exportData() {
 		
 	}
 	

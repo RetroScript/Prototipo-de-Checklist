@@ -1,4 +1,4 @@
-package experiments.testClasses;
+package experiments.testClasses.UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,39 +13,39 @@ public class ContentPaneTesting2 extends JPanel{
 
 	//ADICIONANDO COMPONENTS AO Content Pane DE OUTRA FORMA!!
 		/*
-		 * Para se adicionar algo ao Content Pane primeiro é necessário 
+		 * Para se adicionar algo ao Content Pane primeiro ï¿½ necessï¿½rio 
 		 * considerar a hierarquia entre os componentes internos de um
-		 * JFrame, também é importante lembrar que dentro de um Content Pane
+		 * JFrame, tambï¿½m ï¿½ importante lembrar que dentro de um Content Pane
 		 * entram ainda mais Component's, portanto, aquele seria um "Container"
 		 * 
-		 * Nessa classe eu vou tentar refazer uma das alternativas de adição
-		 * de elementos no JFrame, proposta pelas documentações da Oracle.
+		 * Nessa classe eu vou tentar refazer uma das alternativas de adiï¿½ï¿½o
+		 * de elementos no JFrame, proposta pelas documentaï¿½ï¿½es da Oracle.
 		 * 
 		 */
 	
 	public JLabel label;
 	
-	//Ao instanciar a Classe esse método é chamado. Os atributos e 
-	//comportamentos internos de um método construtor podem ser atribuidos a 
+	//Ao instanciar a Classe esse mï¿½todo ï¿½ chamado. Os atributos e 
+	//comportamentos internos de um mï¿½todo construtor podem ser atribuidos a 
 	//um Objeto externo de Natureza Semelhante 
 	//- que herda uma classe em comum -
 	public ContentPaneTesting2() { 
 		
-		//inicializa e configura a label - que é um Objeto Global-
+		//inicializa e configura a label - que ï¿½ um Objeto Global-
 		label = new JLabel();
 		label.setOpaque(true);
 		label.setBackground(Color.pink);
 		label.setPreferredSize(new Dimension(300,300));
 	
-		//cria e configura a label2 - que é um Objeto Local -
+		//cria e configura a label2 - que ï¿½ um Objeto Local -
 		JLabel label2 = new JLabel();
 		label2.setOpaque(true);
 		label2.setBackground(Color.red);
 		label2.setPreferredSize(new Dimension(300,300));
 	
 		
-		//Métodos herdados da Classe Pai JPanel: definem o layout como 
-		//BorderLayout e adicionam ao painel em suas respectivas posições, 
+		//Mï¿½todos herdados da Classe Pai JPanel: definem o layout como 
+		//BorderLayout e adicionam ao painel em suas respectivas posiï¿½ï¿½es, 
 		//seguindo o Layout desejado.
 		setLayout(new BorderLayout());
 		add(label, BorderLayout.PAGE_END);
@@ -56,25 +56,25 @@ public class ContentPaneTesting2 extends JPanel{
 	public static void initFrame() {
 		JFrame frame = new JFrame("ContentPaneTesting2");
 		
-		//Criação de um novo componente, com os Objetos de Componentes,
-		//que servirá como Content Pane. 
+		//Criaï¿½ï¿½o de um novo componente, com os Objetos de Componentes,
+		//que servirï¿½ como Content Pane. 
 		//Define-se o componente como opaco e como Content Pane
 		JComponent myContentPane = new ContentPaneTesting2();
 		myContentPane.setOpaque(true);
 		
-		//método do Java que transforma qualquer **componente-container
+		//mï¿½todo do Java que transforma qualquer **componente-container
 		//em Content Pane
 		frame.setContentPane(myContentPane);
 		
 			//Atente-se que, somente incializamos os componentes ao 
-			//instanciar a classe, o que ocorre dentro desse método:
+			//instanciar a classe, o que ocorre dentro desse mï¿½todo:
 			//initFrame();	
 			
-			//Além disso, devido a herança com um JPanel, 
+			//Alï¿½m disso, devido a heranï¿½a com um JPanel, 
 			//ao instanciar a minha classe ContentPaneTesting2 eu estarei 
-			//criando um JPanel com algumas "customizações".
+			//criando um JPanel com algumas "customizaï¿½ï¿½es".
 		
-		//defina para encerrar ao fechar, recalcula o tamanho, fica visível
+		//defina para encerrar ao fechar, recalcula o tamanho, fica visï¿½vel
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);

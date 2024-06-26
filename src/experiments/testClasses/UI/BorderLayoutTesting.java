@@ -1,4 +1,4 @@
-package experiments.testClasses;
+package experiments.testClasses.UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,15 +11,15 @@ import javax.swing.JPanel;
 
 public class BorderLayoutTesting {
 
-	//O QUE É UM BorderLayout?
+	//O QUE ï¿½ UM BorderLayout?
 		/*
-		 *Um BorderLayout é um LayoutManager que dispõe os elementos nas 
-		 *bordas de um container qualquer dividindo-o em quatro posições: 
+		 *Um BorderLayout ï¿½ um LayoutManager que dispï¿½e os elementos nas 
+		 *bordas de um container qualquer dividindo-o em quatro posiï¿½ï¿½es: 
 		 *norte, sul, leste, oeste e centro-oeste.
 		 * 
 		 * Para se usar o BorderLayout deve-se passar uma de suas 
-		 * propriedades, as quais fazem referencia a uma direção qualquer,
-		 * dentro de um método add(); de algum conteiner como o JFrame ou
+		 * propriedades, as quais fazem referencia a uma direï¿½ï¿½o qualquer,
+		 * dentro de um mï¿½todo add(); de algum conteiner como o JFrame ou
 		 * JPanel. Sendo assim teriamos como exemplo:
 		 * 
 		 * frame.getContentPane().add(button1, BorderLayout.CENTER);
@@ -45,8 +45,8 @@ public static void main(String [] args) {
 
 		
 		
-		//Criando e adicionando botões ao meu JPanel, seguindo a formatação 
-		//padrão imposto pelo FlowLayout: elementos segmentados em linhas
+		//Criando e adicionando botï¿½es ao meu JPanel, seguindo a formataï¿½ï¿½o 
+		//padrï¿½o imposto pelo FlowLayout: elementos segmentados em linhas
 		JButton button = new JButton();
 		button.setPreferredSize(new Dimension(20,20));
 		panel.add(button);
@@ -57,7 +57,7 @@ public static void main(String [] args) {
 		
 		
 		
-		//Criando JLabel's para cada direção do BorderLayout
+		//Criando JLabel's para cada direï¿½ï¿½o do BorderLayout
 		JLabel label = new JLabel("my label");
 		label.setOpaque(true);
 		label.setBackground(Color.cyan);
@@ -79,15 +79,15 @@ public static void main(String [] args) {
 		label3.setPreferredSize(new Dimension(cWIDTH,cHEIGHT));
 		
 		
-		//Adicionando o JPanel com os botões ao ContentPane
+		//Adicionando o JPanel com os botï¿½es ao ContentPane
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		//Adicionando os JLabel's ao ContentPane, cada um em uma direção
+		//Adicionando os JLabel's ao ContentPane, cada um em uma direï¿½ï¿½o
 		frame.getContentPane().add(label3, BorderLayout.SOUTH);
 		frame.getContentPane().add(label2, BorderLayout.NORTH);
 		frame.getContentPane().add(label1, BorderLayout.WEST);
 		frame.getContentPane().add(label, BorderLayout.EAST);
 		
-		//Adicionaria em paralelo, não seguiria hierarquia**
+		//Adicionaria em paralelo, nï¿½o seguiria hierarquia**
 //		frame.getContentPane().add(label3);
 //		frame.getContentPane().add(label2);
 //		frame.getContentPane().add(label1);
