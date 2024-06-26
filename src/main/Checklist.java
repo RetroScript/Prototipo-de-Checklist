@@ -1,3 +1,4 @@
+package main;
 
 public class Checklist {
 
@@ -24,5 +25,15 @@ public class Checklist {
 	public void finishCheckList() {
 		
 	}
+	
+	public void saveChecklist() {
+		
+	}
+	
+	public void loadChecklist() {
+		
+	}
+	
+
 	
 }

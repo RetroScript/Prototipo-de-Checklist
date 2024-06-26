@@ -1,3 +1,4 @@
+package main;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -26,7 +27,7 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 	public JPanel card1;
 	public JPanel card2;
 	public final int WIDTH = 600;
-	public final int HEIGHT = 500;
+	public final int HEIGHT = 400;
 	
 	public JTextField nomeAtual;
 	public JTextField nomeAnterior;
@@ -60,7 +61,7 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		
 		cardsP = new JPanel(new CardLayout());
 		cardsP.setBackground(Color.pink);
-		cardsP.setMaximumSize(new Dimension(WIDTH - 50, 500));
+		cardsP.setMaximumSize(new Dimension(WIDTH - 50, 250));
 		
 		//mostre a Checklist Atual e suas tasks
 		//Caso não haja nenhuma ainda, sugira criar um checkList
@@ -75,6 +76,18 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		dataInput.setPreferredSize(new Dimension(450,200));
 		dataInput.setBackground(Color.red);
 		
+//		/////
+		
+		JTextField nome = new JTextField(20);
+		JTextField t1 = new JTextField(20);
+		JTextField t2 = new JTextField(20);
+		JTextField t3 = new JTextField(20);
+		
+		dataInput.add(nome);
+		dataInput.add(t1);      
+		dataInput.add(t2);      
+		dataInput.add(t3);      
+		
 		JPanel card1Buttons = new JPanel();
 		card1Buttons.setLayout(new BoxLayout(card1Buttons, BoxLayout.LINE_AXIS));
 		card1Buttons.setMaximumSize(new Dimension(450, 100));
@@ -83,14 +96,14 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		criar = new JButton("Criar Nova checkList");
 		criar.setFocusable(false);
 		criar.addActionListener(this);
-		concluir = new JButton("Concluir CheckList atual");
-		concluir.setFocusable(false);
-		concluir.addActionListener(this);
+//		concluir = new JButton("Concluir CheckList atual");
+//		concluir.setFocusable(false);
+//		concluir.addActionListener(this);
 		
 		card1Buttons.add(Box.createHorizontalGlue());
 		card1Buttons.add(criar);
-		card1Buttons.add(Box.createRigidArea(new Dimension(25,0)));
-		card1Buttons.add(concluir);
+//		card1Buttons.add(Box.createRigidArea(new Dimension(25,0)));
+//		card1Buttons.add(concluir);
 		card1Buttons.add(Box.createHorizontalGlue());
 		
 //		card1.add(Box.createRigidArea(new Dimension(0,7)));
