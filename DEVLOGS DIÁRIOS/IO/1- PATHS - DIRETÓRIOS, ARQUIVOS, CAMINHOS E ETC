@@ -1,0 +1,15 @@
+PATHS: DIRETÓRIOS, ARQUIVOS, CAMINHOS E ETC.
+
+Todo sistema de computador precisa ter uma maneira de organizar os seus
+conteúdos por isso é recorrente a elaboração de sistemas de arquivos para
+organizar pastas e arquivos.
+
+No windows, há o Archive Explorer mas cada sistema possui o seu, além de
+ser possível a criação de aplicações de terceiros que suprem tal necessidade.
+Um exemplo de programa nesse perfil É o Files, uma aplicação open source.
+
+Sem mais enrolações, veremos alguns dos conceitos mais principiantes de 
+IO e como Java interpreta essas ideia sintaticamente!
+
+
+
