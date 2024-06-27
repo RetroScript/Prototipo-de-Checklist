@@ -12,4 +12,27 @@ Sem mais enrolações, veremos alguns dos conceitos mais principiantes de
 IO e como Java interpreta essas ideia sintaticamente!
 
 
+O QUE É UM PATH (ou caminho, em português)?
+
+um caminho consiste em um série de pontos, representados por diretórios,
+que precisam ser percorridos para se acessar determinado lugar (pasta) 
+ou objeto (arquivo) de um sistema.
+
+Um caminho pode ser dividido em RAIZ E RAMOS, por exemplo, ao considerar
+o Explorador de Arquivos do Windows, a pasta Raiz seria 'C:/', ja os 
+ramos (ou nodes, em Ingles) seriam as pastas que se derivam da raiz 
+e de outras pastas nessas contidas (subpastas, por exemplo).
+
+CAMINHO ABSOLUTO E CAMINHO RELATIVO
+
+Todo caminho absoluto possui como ponto de partida a raiz do sistema. Se
+eu quiser acessar um documento na pasta documents eu precisaria do 
+seguinte caminho: C:\Users\Usuário\Documents. Quanto aos caminhos 
+relativos, considera-se uma hierarquia de pastas não ligadas a raiz, como:
+\Usuário\Documents.
+
+LINKS SIMBÓLICOS:
+
+links simbólicos são como atalhos: arquivos que acessam outros arquivos
+em outro lugar.
 
