@@ -1,4 +1,4 @@
-package experiments.testClasses;
+package experiments.testClasses.UI;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,19 +9,19 @@ import javax.swing.JPanel;
 
 public class ContentPaneTesting {
 
-	//O QUE É O Content Pane?
+	//O QUE ï¿½ O Content Pane?
 		/*
-		 * O Content Pane é uma das áreas do JFrame, um container de alto 
-		 * nivel do swing, onde os elementos de interface são dispostos.
+		 * O Content Pane ï¿½ uma das ï¿½reas do JFrame, um container de alto 
+		 * nivel do swing, onde os elementos de interface sï¿½o dispostos.
 		 * 
 		 * O Content Pane faz parte de uma hierarquia patenteado pelo JFrame
-		 * e todos os componentes que estão contidos nele estão abaixo dele
+		 * e todos os componentes que estï¿½o contidos nele estï¿½o abaixo dele
 		 * nessa "piramide".
 		 * 
-		 * Para se adicionar algo ao Content Pane, usa-se o método 
+		 * Para se adicionar algo ao Content Pane, usa-se o mï¿½todo 
 		 * getContentPane.add(nomeDoComponente);
 		 * 
-		 * Para se definir algum elemento como Content Pane, usa-se o método
+		 * Para se definir algum elemento como Content Pane, usa-se o mï¿½todo
 		 * setContentPane(nomeDoComponente);
 		 */
 	
@@ -38,11 +38,11 @@ public class ContentPaneTesting {
 		frame.setPreferredSize(new Dimension(300,300));
 		
 		//Cria um painel, capaz de segurar outros componentes, dispondo-os
-		//em linhas através do FlowLayout, LayoutManager padrão dos JPanel's
+		//em linhas atravï¿½s do FlowLayout, LayoutManager padrï¿½o dos JPanel's
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.pink);
 		
-		//define o JPanel panel como o Content Pane -painel de conteúdo- 
+		//define o JPanel panel como o Content Pane -painel de conteï¿½do- 
 		//do JFrame
 		frame.setContentPane(panel);
 		
@@ -51,17 +51,17 @@ public class ContentPaneTesting {
 //		frame.add(panel);
 		
 		//Cria, configura, e adiciona uma JLabel label ao Content Pane que 
-		//agora é o JPanel panel, que está contido pelo JFrame frame
+		//agora ï¿½ o JPanel panel, que estï¿½ contido pelo JFrame frame
 		JLabel label = new JLabel("comp 1");
 		label.setOpaque(true);
 		label.setBackground(Color.blue);
 		label.setPreferredSize(new Dimension(20,20));
 		frame.getContentPane().add(label);//pega o CP e adiciona a label
 		
-		//Também cria, configura, e adiciona uma JLabel label2 ao 
-		//Content Pane em seguida ao JLabel label através do FlowLayout.
-			//Agora note a disposição dos objetos, a sua segmentação 
-			//é resultado do FlowLayout, que é padrão do JPanel.
+		//Tambï¿½m cria, configura, e adiciona uma JLabel label2 ao 
+		//Content Pane em seguida ao JLabel label atravï¿½s do FlowLayout.
+			//Agora note a disposiï¿½ï¿½o dos objetos, a sua segmentaï¿½ï¿½o 
+			//ï¿½ resultado do FlowLayout, que ï¿½ padrï¿½o do JPanel.
 		JLabel label2 = new JLabel("comp 2");
 		label2.setOpaque(true);
 		label2.setBackground(Color.cyan);

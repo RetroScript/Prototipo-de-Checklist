@@ -1,4 +1,4 @@
-package experiments.testClasses;
+package experiments.testClasses.UI;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;

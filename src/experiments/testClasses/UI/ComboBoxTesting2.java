@@ -1,4 +1,4 @@
-package experiments.testClasses;
+package experiments.testClasses.UI;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -12,21 +12,21 @@ import javax.swing.JPanel;
 
 public class ComboBoxTesting2 implements ActionListener{
 
-	//O QUE É UM ComboBox?
+	//O QUE ï¿½ UM ComboBox?
 		/*
-		 * uma combobox é um componente do swing que exibe um menu com 
-		 * diversas opções pré-programadas para o usuário escolher.
+		 * uma combobox ï¿½ um componente do swing que exibe um menu com 
+		 * diversas opï¿½ï¿½es prï¿½-programadas para o usuï¿½rio escolher.
 		 * 
 		 * uma combobox pode adicionar um ActionListener para que quando 
-		 * uma ação for realizada, como a escolha de uma das opções,
-		 * algo aconteça.
+		 * uma aï¿½ï¿½o for realizada, como a escolha de uma das opï¿½ï¿½es,
+		 * algo aconteï¿½a.
 		 * 
-		 * uma ComboBox também pode ser usada em conjunto com CardLayout's,
-		 * que alteram a exibição de determinados grupos de componentes a 
-		 * partir do estado da ComboBox, o que é realizado com o uso de um
+		 * uma ComboBox tambï¿½m pode ser usada em conjunto com CardLayout's,
+		 * que alteram a exibiï¿½ï¿½o de determinados grupos de componentes a 
+		 * partir do estado da ComboBox, o que ï¿½ realizado com o uso de um
 		 * ActionListener.
 		 * 
-		 * Essa classe não irá só criar uma ComboBox, mas usá-la para conferir
+		 * Essa classe nï¿½o irï¿½ sï¿½ criar uma ComboBox, mas usï¿½-la para conferir
 		 * seus estados e a partir destes mudar um dos componentes dentro 
 		 * da JFrame.
 		 * 
@@ -49,8 +49,8 @@ public class ComboBoxTesting2 implements ActionListener{
 		JFrame frame = new JFrame("ComboBoxTesting");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		//inicializa a ComboBox cb e configura suas opções,
-		//seu tamanho também é definido e o ActionListener é adicionado
+		//inicializa a ComboBox cb e configura suas opï¿½ï¿½es,
+		//seu tamanho tambï¿½m ï¿½ definido e o ActionListener ï¿½ adicionado
 		cbTest2.cb = new JComboBox(cbTest2.stringOptions);
 		cbTest2.cb.setPreferredSize(new Dimension(300,300));
 		cbTest2.cb.addActionListener(cbTest2);
@@ -63,13 +63,13 @@ public class ComboBoxTesting2 implements ActionListener{
 		frame.setVisible(true);
 	}
 
-	//É chamado quando um ação acontece
+	//ï¿½ chamado quando um aï¿½ï¿½o acontece
 	public void actionPerformed(ActionEvent e) {
 		
-		//verifica se a ultima ação é da ComboBox cb
+		//verifica se a ultima aï¿½ï¿½o ï¿½ da ComboBox cb
 		if(e.getSource() == cb) {
 			
-			//Verifica se o item selecionado confere alguma das opções
+			//Verifica se o item selecionado confere alguma das opï¿½ï¿½es
 			//e realiza suas respectivas respostas
 			if(cb.getSelectedItem() == stringOptions[0]) {
 				
