@@ -9,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -28,6 +30,8 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 	public JPanel menu2Panel;
 	public JPanel menu3Panel;
 
+	public ArrayList<JTextField> menu2Contents = new ArrayList<JTextField>();
+	
 	public CardLayout CL;
 	
 	JLabel warningLabel;
@@ -70,7 +74,7 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		addTextField("title", 50, 50, Color.white, tfPanel);
 		addTextField("task 1", 50, 20, Color.white, tfPanel);
 		addTextField("task 2", 50, 20, Color.white, tfPanel);
-		addTextField("task", 50, 20, Color.white, tfPanel);
+		addTextField("task 3", 50, 20, Color.white, tfPanel);
 		menu1Panel.add(tfPanel);
 		
 		JButton createButton = new JButton("Criar");
@@ -122,6 +126,18 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		
 	}
 	
+	public void addFixedTextField(String fieldTitle, String fieldText, int wid, int hei) {
+		JTextField tf = new JTextField(20);
+		tf.setBackground(Color.white);
+		tf.setPreferredSize(new Dimension(wid, hei));
+		tf.setText(fieldText);
+		tf.setName(fieldTitle);
+		tf.setEditable(false);
+		tf.setFocusable(false);
+		
+		menu2Contents.add(tf);
+	}
+	
 	public void initSecondCard() {
 		
 		Container TFPanel = (Container) menu1Panel.getComponent(0);
@@ -138,14 +154,13 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		
 		String[] listInfo = {title, task1, task2, task3};
 		
-		createChecklist(title, listInfo[1],listInfo[2],listInfo[3]);
-		
+		createChecklist(listInfo[0], listInfo[1],listInfo[2],listInfo[3]);
 		
 	}
 	
 	public static void initGUI() {
 		JFrame frame = new JFrame("checklist bro");
-		frame.setResizable(true);
+		frame.setResizable(false);
 		frame.setLayout(new FlowLayout());
 		frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		
@@ -189,40 +204,65 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		CL.show(menusPanel, menuOptions[1]);
 		menuSelector.setSelectedIndex(1);
 		
-		JTextField tf = new JTextField(20);
-		tf.setBackground(Color.white);
-		tf.setPreferredSize(new Dimension(50, 50));
-		tf.setText(listname);
-		tf.setEditable(false);
-		tf.setFocusable(false);
+		addFixedTextField("checklistTitle", listname, 50,50);
+		addFixedTextField("checklistTask1", task1name, 50,20);
+		addFixedTextField("checklistTask2", task2name, 50,20);
+		addFixedTextField("checklistTask3", task3name, 50,20);
 		
-		JTextField task1 = new JTextField(20);
-		task1.setBackground(Color.white);
-		task1.setPreferredSize(new Dimension(50, 20));
-		task1.setText(task1name);
-		task1.setEditable(false);
-		task1.setFocusable(false);
+		//TRATAR A REMOÇÃO DESSE TRECHO
 		
-		JTextField task2 = new JTextField(20);
-		task2.setBackground(Color.white);
-		task2.setPreferredSize(new Dimension(50, 20));
-		task2.setText(task2name);
-		task2.setEditable(false);
-		task2.setFocusable(false);
+//		JTextField tf = new JTextField(20);
+//		tf.setBackground(Color.white);
+//		tf.setPreferredSize(new Dimension(50, 50));
+//		tf.setText(listname);
+//		tf.setEditable(false);
+//		tf.setFocusable(false);
+//		
+//		JTextField task1 = new JTextField(20);
+//		task1.setBackground(Color.white);
+//		task1.setPreferredSize(new Dimension(50, 20));
+//		task1.setText(task1name);
+//		task1.setEditable(false);
+//		task1.setFocusable(false);
+//		
+//		JTextField task2 = new JTextField(20);
+//		task2.setBackground(Color.white);
+//		task2.setPreferredSize(new Dimension(50, 20));
+//		task2.setText(task2name);
+//		task2.setEditable(false);
+//		task2.setFocusable(false);
+//		
+//		JTextField task3 = new JTextField(20);
+//		task3.setBackground(Color.white);
+//		task3.setPreferredSize(new Dimension(50, 20));
+//		task3.setText(task3name);
+//		task3.setEditable(false);
+//		task3.setFocusable(false);
 		
-		JTextField task3 = new JTextField(20);
-		task3.setBackground(Color.white);
-		task3.setPreferredSize(new Dimension(50, 20));
-		task3.setText(task3name);
-		task3.setEditable(false);
-		task3.setFocusable(false);
+		JPanel contentsInfoPanel = new JPanel();
+		contentsInfoPanel.setBackground(Color.black);
+		contentsInfoPanel.setPreferredSize(new Dimension(300,200));
 		
-		menu2Panel.remove(warningLabel);
-		menu2Panel.add(tf);
-		menu2Panel.add(task1);
-		menu2Panel.add(task2);
-		menu2Panel.add(task3);
+		for(int i = 0; i < menu2Contents.size(); i++) {
+			
+			contentsInfoPanel.add(menu2Contents.get(i));
+			
+		}
 		
+		
+//		contentsInfoPanel.add(tf);
+//		contentsInfoPanel.add(task1);
+//		contentsInfoPanel.add(task2);
+//		contentsInfoPanel.add(task3);
+		
+		
+		menu2Panel.add(contentsInfoPanel);
+		
+//		menu2Panel.add(tf);
+//		menu2Panel.add(task1);
+//		menu2Panel.add(task2);
+//		menu2Panel.add(task3);
+//		
 	}
 	
 
