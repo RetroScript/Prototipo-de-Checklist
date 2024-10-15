@@ -23,13 +23,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Main extends JPanel implements ItemListener, ActionListener{
+public class Main2 extends JPanel implements ItemListener, ActionListener{
 
 	public JPanel menusPanel;
 	public JPanel menu1Panel;
 	public JPanel menu2Panel;
 	public JPanel menu3Panel;
 
+	public ArrayList<JTextField> menu1Contents = new ArrayList<JTextField>();
 	public ArrayList<JTextField> menu2Contents = new ArrayList<JTextField>();
 	
 	public CardLayout CL;
@@ -43,7 +44,7 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
 	
-	public Main() {
+	public Main2() {
 		
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
@@ -71,10 +72,17 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		tfPanel.setBackground(Color.CYAN);
 		tfPanel.setPreferredSize(new Dimension(400, 150));
 		
-		addTextField("title", 50, 50, Color.white, tfPanel);
-		addTextField("task 1", 50, 20, Color.white, tfPanel);
-		addTextField("task 2", 50, 20, Color.white, tfPanel);
-		addTextField("task 3", 50, 20, Color.white, tfPanel);
+		addTextField("title", 50, 50, Color.white, menu1Contents);
+		addTextField("task 1", 50, 20, Color.white, menu1Contents);
+		addTextField("task 2", 50, 20, Color.white, menu1Contents);
+		addTextField("task 3", 50, 20, Color.white, menu1Contents);
+		
+		for(int i = 0; i < menu1Contents.size(); i++) {
+			
+			tfPanel.add(menu1Contents.get(i));
+			
+		}
+			
 		menu1Panel.add(tfPanel);
 		
 		JButton createButton = new JButton("Criar");
@@ -117,16 +125,17 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		
 	}
 	
-	public void addTextField(String fieldTitle, int wid, int hei, Color col, Container pane) {
+	public void addTextField(String fieldTitle, int wid, int hei, Color col, ArrayList<JTextField> TFGroup) {
 		JTextField tf = new JTextField(20);
 		tf.setBackground(col);
 		tf.setPreferredSize(new Dimension(wid, hei));
 		tf.setToolTipText("set the " + fieldTitle + " here");
-		pane.add(tf);
+		
+		TFGroup.add(tf);
 		
 	}
 	
-	public void addFixedTextField(String fieldTitle, String fieldText, int wid, int hei) {
+	public void addFixedTextField(String fieldTitle, String fieldText, int wid, int hei, ArrayList<JTextField> TFGroup) {
 		JTextField tf = new JTextField(20);
 		tf.setBackground(Color.white);
 		tf.setPreferredSize(new Dimension(wid, hei));
@@ -135,28 +144,9 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		tf.setEditable(false);
 		tf.setFocusable(false);
 		
-		menu2Contents.add(tf);
+		TFGroup.add(tf);
 	}
 	
-	public void initSecondCard() {
-		
-		Container TFPanel = (Container) menu1Panel.getComponent(0);
-		
-		JTextField titleTF = (JTextField) TFPanel.getComponent(0);
-		JTextField task1TF = (JTextField) TFPanel.getComponent(1);
-		JTextField task2TF = (JTextField) TFPanel.getComponent(2);
-		JTextField task3TF = (JTextField) TFPanel.getComponent(3);
-		
-		String title = titleTF.getText();
-		String task1 = task1TF.getText();
-		String task2 = task2TF.getText();
-		String task3 = task3TF.getText();
-		
-		String[] listInfo = {title, task1, task2, task3};
-		
-		createChecklist(listInfo[0], listInfo[1],listInfo[2],listInfo[3]);
-		
-	}
 	
 	public static void initGUI() {
 		JFrame frame = new JFrame("checklist bro");
@@ -165,7 +155,7 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		frame.setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		
 		
-		JComponent cp = new Main();
+		JComponent cp = new Main2();
 		frame.setContentPane(cp);
 		
 		
@@ -177,49 +167,24 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		
 	}
 	
-	public static void main(String[] args) {
-		Main main = new Main();
-		initGUI();
-		System.out.println("hello world");
+	public void initSecondCard() {
 		
 	}
 	
-	public void createChecklist(String listname, String task1name, String task2name, String task3name) {
-		
-		menu2Panel.removeAll();
-		JComponent creationPanel = (JComponent) menu1Panel.getComponent(0);
-		JTextField creationPanelTFTs;
-		for(int i = 0; i < creationPanel.getComponentCount(); i++) {
-		
-			System.out.println("modifying mt text fields");
-			
-			creationPanelTFTs = (JTextField) creationPanel.getComponent(i);
-			creationPanelTFTs.setText(null);
-			
-		}
-		
-		CheckList list = new CheckList(listname, task1name, task2name, task3name);
-		System.out.println("checklist created");
-		
-		CL.show(menusPanel, menuOptions[1]);
-		menuSelector.setSelectedIndex(1);
-		
-		addFixedTextField("checklistTitle", listname, 50,50);
-		addFixedTextField("checklistTask1", task1name, 50,20);
-		addFixedTextField("checklistTask2", task2name, 50,20);
-		addFixedTextField("checklistTask3", task3name, 50,20);
-		
-		JPanel contentsInfoPanel = new JPanel();
-		contentsInfoPanel.setBackground(Color.black);
-		contentsInfoPanel.setPreferredSize(new Dimension(300,200));
+	public void createChecklist() {
 		
 		for(int i = 0; i < menu2Contents.size(); i++) {
 			
-			contentsInfoPanel.add(menu2Contents.get(i));
-			
 		}
-				
-		menu2Panel.add(contentsInfoPanel);
+		
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		Main2 main = new Main2();
+		initGUI();
+		System.out.println("hello world");
 		
 	}
 	
@@ -240,7 +205,7 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 			
 			System.out.println("create button pressed");
 			
-			initSecondCard();
+			createChecklist();
 			
 		}
 		
