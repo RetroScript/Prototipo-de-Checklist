@@ -32,6 +32,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 
 	public ArrayList<JTextField> menu1Contents = new ArrayList<JTextField>();
 	public ArrayList<JTextField> menu2Contents = new ArrayList<JTextField>();
+	public ArrayList<JTextField> menu3Contents = new ArrayList<JTextField>();
 	
 	public CardLayout CL;
 	
@@ -107,6 +108,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		lastWarningLabel.setBackground(Color.magenta);
 		menu3Panel.add(lastWarningLabel);
 		
+		
 		selectorPanel.add(Box.createGlue());
 		selectorPanel.add(menuSelector);
 		selectorPanel.add(Box.createGlue());
@@ -122,6 +124,24 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		add(Box.createRigidArea(new Dimension(0,10)));
 		add(menusPanel);
 		add(Box.createRigidArea(new Dimension(0,25)));
+		
+
+		try {
+			CheckList cl = (CheckList) FileManager.load("checkList.save");
+			
+			if(cl != null) {
+				
+				initThirdCard();
+				CL.show(menusPanel, menuOptions[2]);
+				menuSelector.setSelectedIndex(2);
+			
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
 		
 	}
 	
@@ -169,15 +189,117 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 	
 	public void initSecondCard() {
 		
+		JPanel contentsInfoPanel = new JPanel();
+		contentsInfoPanel.setBackground(Color.black);
+		contentsInfoPanel.setPreferredSize(new Dimension(400,150));
+		
+		JButton finishButton = new JButton("Concluir");
+		finishButton.addActionListener(this);
+		
+		try {
+			CheckList cl = (CheckList)FileManager.load("checkList.save");
+			
+			addFixedTextField("CLTittle", cl.getName(), 50, 50, menu2Contents);
+			addFixedTextField("CLTask1", cl.getTasks(0), 50, 20, menu2Contents);
+			addFixedTextField("CLTask2", cl.getTasks(1), 50, 20, menu2Contents);
+			addFixedTextField("CLTask3", cl.getTasks(2), 50, 20, menu2Contents);
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		menu2Panel.removeAll();
+			
+		for(int i = 0; i < menu2Contents.size(); i++) {
+			
+			contentsInfoPanel.add(menu2Contents.get(i));
+			
+		}
+		
+		menu2Panel.add(contentsInfoPanel);
+		menu2Panel.add(finishButton);
+		
+		CL.show(menusPanel, menuOptions[1]);
+		menuSelector.setSelectedIndex(1);
+		
 	}
 	
-	public void createChecklist() {
+	public void initThirdCard() {	
 		
-		for(int i = 0; i < menu2Contents.size(); i++) {
+		menu3Panel.removeAll();
+		
+		JLabel lastCLWarning = new JLabel("Esta foi a ultima CL que voce concluiu! Parabens!");
+		lastCLWarning.setOpaque(true);
+		lastCLWarning.setBackground(Color.pink);
+		
+		JLabel lastCLWarning2 = new JLabel("Que tal fazer outra CL?");
+		lastCLWarning2.setOpaque(true);
+		lastCLWarning2.setBackground(Color.pink);
+		
+		JButton newCL = new JButton("Faça outra CL! Clique >AQUI<!!!");
+		
+		JPanel contentsInfoPanel = new JPanel();
+		contentsInfoPanel.setBackground(Color.magenta);
+		contentsInfoPanel.setPreferredSize(new Dimension(400,150));
+		
+		try {
+			CheckList cl = (CheckList) FileManager.load("checkList.save");
+			
+			addFixedTextField("CLTittle", cl.getName(), 50, 50, menu3Contents);
+			addFixedTextField("CLTask1", cl.getTasks(0), 50, 20, menu3Contents);
+			addFixedTextField("CLTask2", cl.getTasks(1), 50, 20, menu3Contents);
+			addFixedTextField("CLTask3", cl.getTasks(2), 50, 20, menu3Contents);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(int i = 0; i < menu3Contents.size(); i++) {
+			
+			menu3Contents.get(i).setBackground(Color.pink);
+			contentsInfoPanel.add(menu3Contents.get(i));
 			
 		}
 		
 		
+
+		menu3Panel.add(lastCLWarning);
+		menu3Panel.add(contentsInfoPanel);
+		menu3Panel.add(lastCLWarning2);
+		menu3Panel.add(newCL);
+		
+		newCL.addActionListener( e -> {
+			
+			CL.show(menusPanel, menuOptions[0]);
+			menuSelector.setSelectedIndex(0);
+			
+//			menu3Panel.removeAll();
+			
+		});
+		
+		CL.show(menusPanel, menuOptions[2]);
+		menuSelector.setSelectedIndex(2);
+	}
+	public void createChecklist() {
+		
+		String[] listInfo = new String[menu1Contents.size()];
+		
+		for(int i = 0; i < menu1Contents.size(); i++) {
+			
+			listInfo[i] = (String) menu1Contents.get(i).getText();
+			
+		}
+		CheckList cl = new CheckList(listInfo[0], listInfo[1], listInfo[2], listInfo[3]);
+		try {
+			FileManager.save(cl, "checkList.save");
+		} catch (Exception e) {
+			System.out.println("couldn't save your checklist: " + e.getMessage());
+		}
+		
+		initSecondCard();
 		
 	}
 	
@@ -198,7 +320,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-				
+		
 		JButton createButton = (JButton) menu1Panel.getComponent(1);
 		
 		if(e.getSource() == createButton) {
@@ -206,6 +328,14 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 			System.out.println("create button pressed");
 			
 			createChecklist();
+			
+		}
+		
+		JButton finishButton = (JButton) menu2Panel.getComponent(1);
+		
+		if(e.getSource() == finishButton) {
+			
+			initThirdCard();
 			
 		}
 		

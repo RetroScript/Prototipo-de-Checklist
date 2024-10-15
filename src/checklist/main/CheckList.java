@@ -1,6 +1,8 @@
 package checklist.main;
 
-public class CheckList {
+import java.io.Serializable;
+
+public class CheckList implements Serializable{
 
 	private String preferredName;
 	private String[] tasks;
