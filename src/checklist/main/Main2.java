@@ -196,6 +196,9 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		JButton finishButton = new JButton("Concluir");
 		finishButton.addActionListener(this);
 		
+		menu2Contents.removeAll(menu2Contents);
+		contentsInfoPanel.removeAll();
+		
 		try {
 			CheckList cl = (CheckList)FileManager.load("checkList.save");
 			
@@ -230,6 +233,14 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		
 		menu3Panel.removeAll();
 		
+//		menu3Contents.remove(0);
+//		menu3Contents.remove(1);
+//		menu3Contents.remove(2);
+//		menu3Contents.remove(3);
+//		
+//		menu3Contents.clear();
+		
+		
 		JLabel lastCLWarning = new JLabel("Esta foi a ultima CL que voce concluiu! Parabens!");
 		lastCLWarning.setOpaque(true);
 		lastCLWarning.setBackground(Color.pink);
@@ -243,6 +254,9 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		JPanel contentsInfoPanel = new JPanel();
 		contentsInfoPanel.setBackground(Color.magenta);
 		contentsInfoPanel.setPreferredSize(new Dimension(400,150));
+		
+		menu3Contents.removeAll(menu3Contents);
+		contentsInfoPanel.removeAll();
 		
 		try {
 			CheckList cl = (CheckList) FileManager.load("checkList.save");
@@ -276,6 +290,10 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 			CL.show(menusPanel, menuOptions[0]);
 			menuSelector.setSelectedIndex(0);
 			
+			menu1Contents.get(0).setText(null);
+			menu1Contents.get(1).setText(null);
+			menu1Contents.get(2).setText(null);
+			menu1Contents.get(3).setText(null);
 //			menu3Panel.removeAll();
 			
 		});
