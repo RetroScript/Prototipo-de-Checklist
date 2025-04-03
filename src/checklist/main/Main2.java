@@ -2,6 +2,7 @@ package checklist.main;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -16,6 +17,7 @@ import java.util.List;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -25,14 +27,16 @@ import javax.swing.JTextField;
 
 public class Main2 extends JPanel implements ItemListener, ActionListener{
 
+	
+	private static final long serialVersionUID = -8820286385818338364L;
 	public JPanel menusPanel;
 	public JPanel menu1Panel;
 	public JPanel menu2Panel;
 	public JPanel menu3Panel;
 
 	public ArrayList<JTextField> menu1Contents = new ArrayList<JTextField>();
-	public ArrayList<JTextField> menu2Contents = new ArrayList<JTextField>();
-	public ArrayList<JTextField> menu3Contents = new ArrayList<JTextField>();
+	public ArrayList<Component> menu2Contents = new ArrayList<Component>();
+	public ArrayList<Component> menu3Contents = new ArrayList<Component>();
 	
 	public CardLayout CL;
 	
@@ -155,7 +159,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		
 	}
 	
-	public void addFixedTextField(String fieldTitle, String fieldText, int wid, int hei, ArrayList<JTextField> TFGroup) {
+	public void addFixedTextField(String fieldTitle, String fieldText, int wid, int hei, ArrayList<Component> TFGroup) {
 		JTextField tf = new JTextField(20);
 		tf.setBackground(Color.white);
 		tf.setPreferredSize(new Dimension(wid, hei));
@@ -192,6 +196,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		JPanel contentsInfoPanel = new JPanel();
 		contentsInfoPanel.setBackground(Color.black);
 		contentsInfoPanel.setPreferredSize(new Dimension(400,150));
+		contentsInfoPanel.setLayout(new BoxLayout(contentsInfoPanel, BoxLayout.PAGE_AXIS));
 		
 		JButton finishButton = new JButton("Concluir");
 		finishButton.addActionListener(this);
@@ -199,13 +204,27 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		menu2Contents.removeAll(menu2Contents);
 		contentsInfoPanel.removeAll();
 		
+		JCheckBox option1 = new JCheckBox("");
+		JCheckBox option2 = new JCheckBox("");
+		JCheckBox option3 = new JCheckBox("");
+		
+		
+		
 		try {
 			CheckList cl = (CheckList)FileManager.load("checkList.save");
 			
 			addFixedTextField("CLTittle", cl.getName(), 50, 50, menu2Contents);
-			addFixedTextField("CLTask1", cl.getTasks(0), 50, 20, menu2Contents);
-			addFixedTextField("CLTask2", cl.getTasks(1), 50, 20, menu2Contents);
-			addFixedTextField("CLTask3", cl.getTasks(2), 50, 20, menu2Contents);
+//			addFixedTextField("CLTask1", cl.getTasks(0), 50, 20, menu2Contents);
+//			addFixedTextField("CLTask2", cl.getTasks(1), 50, 20, menu2Contents);
+//			addFixedTextField("CLTask3", cl.getTasks(2), 50, 20, menu2Contents);
+			option1.setText(cl.getTasks(0));
+			option2.setText(cl.getTasks(1));
+			option3.setText(cl.getTasks(2));
+			
+			menu2Contents.add(option1);
+			menu2Contents.add(option2);
+			menu2Contents.add(option3);
+			
 			
 			
 		} catch (Exception e) {
@@ -215,12 +234,21 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		
 		menu2Panel.removeAll();
 			
+		contentsInfoPanel.add(Box.createRigidArea(new Dimension(0,20)));
+		
 		for(int i = 0; i < menu2Contents.size(); i++) {
 			
+			contentsInfoPanel.add(Box.createRigidArea(new Dimension(5,5)));
+			contentsInfoPanel.add(Box.createHorizontalGlue());
 			contentsInfoPanel.add(menu2Contents.get(i));
-			
+			contentsInfoPanel.add(Box.createHorizontalGlue());
+			contentsInfoPanel.add(Box.createRigidArea(new Dimension(5,5)));
 		}
 		
+		contentsInfoPanel.add(Box.createRigidArea(new Dimension(0,20)));
+		contentsInfoPanel.setAlignmentX(Box.CENTER_ALIGNMENT);
+		
+//		menu2Contents.get(0).setMaximumSize(new Dimension(500,50));
 		menu2Panel.add(contentsInfoPanel);
 		menu2Panel.add(finishButton);
 		
@@ -254,6 +282,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		JPanel contentsInfoPanel = new JPanel();
 		contentsInfoPanel.setBackground(Color.magenta);
 		contentsInfoPanel.setPreferredSize(new Dimension(400,150));
+		
 		
 		menu3Contents.removeAll(menu3Contents);
 		contentsInfoPanel.removeAll();

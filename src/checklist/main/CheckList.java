@@ -4,20 +4,12 @@ import java.io.Serializable;
 
 public class CheckList implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8820286385818338364L;
 	private String preferredName;
 	private String[] tasks;
-	
-	public void deleteChecklist() {
-		
-	}
-	
-	public void saveChecklist() {
-		
-	}
-	
-	public void loadChecklist() {
-		
-	}
 	
 	public CheckList(String name, String task1, String task2, String task3) {
 		tasks = new String[3];
@@ -28,10 +20,6 @@ public class CheckList implements Serializable{
 		tasks[0] = task1;
 		tasks[1] = task2;
 		tasks[2] = task3;
-		
-	}
-	
-	public void exportData() {
 		
 	}
 	
