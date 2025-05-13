@@ -24,6 +24,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 
 public class Main2 extends JPanel implements ItemListener, ActionListener{
 
@@ -39,6 +40,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 	public ArrayList<Component> menu3Contents = new ArrayList<Component>();
 	
 	public CardLayout CL;
+	public SpringLayout SL;
 	
 	JLabel warningLabel;
 	
@@ -52,6 +54,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 	public Main2() {
 		
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		SL = new SpringLayout();
 		
 		selectorPanel = new JPanel();
 		selectorPanel.setLayout(new BoxLayout(selectorPanel, BoxLayout.LINE_AXIS));
@@ -196,7 +199,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		JPanel contentsInfoPanel = new JPanel();
 		contentsInfoPanel.setBackground(Color.black);
 		contentsInfoPanel.setPreferredSize(new Dimension(400,150));
-		contentsInfoPanel.setLayout(new BoxLayout(contentsInfoPanel, BoxLayout.PAGE_AXIS));
+		contentsInfoPanel.setLayout(SL);
 		
 		JButton finishButton = new JButton("Concluir");
 		finishButton.addActionListener(this);
@@ -233,20 +236,27 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		}
 		
 		menu2Panel.removeAll();
-			
-		contentsInfoPanel.add(Box.createRigidArea(new Dimension(0,20)));
+		
+		SL.putConstraint(SpringLayout.NORTH, menu2Contents.get(0), 20, SpringLayout.NORTH, contentsInfoPanel);
+		SL.putConstraint(SpringLayout.WEST, menu2Contents.get(0), 50, SpringLayout.WEST, contentsInfoPanel);
+
+		SL.putConstraint(SpringLayout.NORTH, option1, 5, SpringLayout.SOUTH, menu2Contents.get(0));
+		SL.putConstraint(SpringLayout.WEST, option1, 50, SpringLayout.WEST, contentsInfoPanel);
+		SL.putConstraint(SpringLayout.NORTH, option2, 5, SpringLayout.SOUTH, option1);
+		SL.putConstraint(SpringLayout.WEST, option2, 50, SpringLayout.WEST, contentsInfoPanel);
+		SL.putConstraint(SpringLayout.NORTH, option3, 5, SpringLayout.SOUTH, option2);
+		SL.putConstraint(SpringLayout.WEST, option3, 50, SpringLayout.WEST, contentsInfoPanel);
+
+		SL.putConstraint(SpringLayout.SOUTH, contentsInfoPanel, 20, SpringLayout.SOUTH, menu2Contents.get(3));	
+		
 		
 		for(int i = 0; i < menu2Contents.size(); i++) {
-			
-			contentsInfoPanel.add(Box.createRigidArea(new Dimension(5,5)));
-			contentsInfoPanel.add(Box.createHorizontalGlue());
+	
 			contentsInfoPanel.add(menu2Contents.get(i));
-			contentsInfoPanel.add(Box.createHorizontalGlue());
-			contentsInfoPanel.add(Box.createRigidArea(new Dimension(5,5)));
+			
 		}
 		
-		contentsInfoPanel.add(Box.createRigidArea(new Dimension(0,20)));
-		contentsInfoPanel.setAlignmentX(Box.CENTER_ALIGNMENT);
+		
 		
 //		menu2Contents.get(0).setMaximumSize(new Dimension(500,50));
 		menu2Panel.add(contentsInfoPanel);
