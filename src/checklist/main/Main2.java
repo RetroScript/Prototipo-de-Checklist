@@ -287,7 +287,7 @@ public class Main2 extends JPanel implements ItemListener, ActionListener{
 		lastCLWarning2.setOpaque(true);
 		lastCLWarning2.setBackground(Color.pink);
 		
-		JButton newCL = new JButton("Faça outra CL! Clique >AQUI<!!!");
+		JButton newCL = new JButton("Faï¿½a outra CL! Clique >AQUI<!!!");
 		
 		JPanel contentsInfoPanel = new JPanel();
 		contentsInfoPanel.setBackground(Color.magenta);
