@@ -1,4 +1,4 @@
-package main;
+package checklist.side2.main;
 
 public class ChecklistManager {
 

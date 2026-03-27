@@ -1,4 +1,4 @@
-package main;
+package checklist.side2.main;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -64,7 +64,7 @@ public class Main extends JPanel implements ActionListener, ItemListener{
 		cardsP.setMaximumSize(new Dimension(WIDTH - 50, 250));
 		
 		//mostre a Checklist Atual e suas tasks
-		//Caso não haja nenhuma ainda, sugira criar um checkList
+		//Caso nï¿½o haja nenhuma ainda, sugira criar um checkList
 		card1 = new JPanel();
 		card1.setBackground(Color.cyan);
 		

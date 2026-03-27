@@ -2,6 +2,7 @@ package checklist.main;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -16,23 +17,30 @@ import java.util.List;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 
 public class Main extends JPanel implements ItemListener, ActionListener{
 
+	
+	private static final long serialVersionUID = -8820286385818338364L;
 	public JPanel menusPanel;
 	public JPanel menu1Panel;
 	public JPanel menu2Panel;
 	public JPanel menu3Panel;
 
-	public ArrayList<JTextField> menu2Contents = new ArrayList<JTextField>();
+	public ArrayList<JTextField> menu1Contents = new ArrayList<JTextField>();
+	public ArrayList<Component> menu2Contents = new ArrayList<Component>();
+	public ArrayList<Component> menu3Contents = new ArrayList<Component>();
 	
 	public CardLayout CL;
+	public SpringLayout SL;
 	
 	JLabel warningLabel;
 	
@@ -46,6 +54,7 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 	public Main() {
 		
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		SL = new SpringLayout();
 		
 		selectorPanel = new JPanel();
 		selectorPanel.setLayout(new BoxLayout(selectorPanel, BoxLayout.LINE_AXIS));
@@ -71,10 +80,17 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		tfPanel.setBackground(Color.CYAN);
 		tfPanel.setPreferredSize(new Dimension(400, 150));
 		
-		addTextField("title", 50, 50, Color.white, tfPanel);
-		addTextField("task 1", 50, 20, Color.white, tfPanel);
-		addTextField("task 2", 50, 20, Color.white, tfPanel);
-		addTextField("task 3", 50, 20, Color.white, tfPanel);
+		addTextField("title", 50, 50, Color.white, menu1Contents);
+		addTextField("task 1", 50, 20, Color.white, menu1Contents);
+		addTextField("task 2", 50, 20, Color.white, menu1Contents);
+		addTextField("task 3", 50, 20, Color.white, menu1Contents);
+		
+		for(int i = 0; i < menu1Contents.size(); i++) {
+			
+			tfPanel.add(menu1Contents.get(i));
+			
+		}
+			
 		menu1Panel.add(tfPanel);
 		
 		JButton createButton = new JButton("Criar");
@@ -99,6 +115,7 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		lastWarningLabel.setBackground(Color.magenta);
 		menu3Panel.add(lastWarningLabel);
 		
+		
 		selectorPanel.add(Box.createGlue());
 		selectorPanel.add(menuSelector);
 		selectorPanel.add(Box.createGlue());
@@ -115,18 +132,37 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		add(menusPanel);
 		add(Box.createRigidArea(new Dimension(0,25)));
 		
+
+		try {
+			CheckList cl = (CheckList) FileManager.load("checkList.save");
+			
+			if(cl != null) {
+				
+				initThirdCard();
+				CL.show(menusPanel, menuOptions[2]);
+				menuSelector.setSelectedIndex(2);
+			
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		
 	}
 	
-	public void addTextField(String fieldTitle, int wid, int hei, Color col, Container pane) {
+	public void addTextField(String fieldTitle, int wid, int hei, Color col, ArrayList<JTextField> TFGroup) {
 		JTextField tf = new JTextField(20);
 		tf.setBackground(col);
 		tf.setPreferredSize(new Dimension(wid, hei));
 		tf.setToolTipText("set the " + fieldTitle + " here");
-		pane.add(tf);
+		
+		TFGroup.add(tf);
 		
 	}
 	
-	public void addFixedTextField(String fieldTitle, String fieldText, int wid, int hei) {
+	public void addFixedTextField(String fieldTitle, String fieldText, int wid, int hei, ArrayList<Component> TFGroup) {
 		JTextField tf = new JTextField(20);
 		tf.setBackground(Color.white);
 		tf.setPreferredSize(new Dimension(wid, hei));
@@ -135,28 +171,9 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		tf.setEditable(false);
 		tf.setFocusable(false);
 		
-		menu2Contents.add(tf);
+		TFGroup.add(tf);
 	}
 	
-	public void initSecondCard() {
-		
-		Container TFPanel = (Container) menu1Panel.getComponent(0);
-		
-		JTextField titleTF = (JTextField) TFPanel.getComponent(0);
-		JTextField task1TF = (JTextField) TFPanel.getComponent(1);
-		JTextField task2TF = (JTextField) TFPanel.getComponent(2);
-		JTextField task3TF = (JTextField) TFPanel.getComponent(3);
-		
-		String title = titleTF.getText();
-		String task1 = task1TF.getText();
-		String task2 = task2TF.getText();
-		String task3 = task3TF.getText();
-		
-		String[] listInfo = {title, task1, task2, task3};
-		
-		createChecklist(listInfo[0], listInfo[1],listInfo[2],listInfo[3]);
-		
-	}
 	
 	public static void initGUI() {
 		JFrame frame = new JFrame("checklist bro");
@@ -177,6 +194,176 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		
 	}
 	
+	public boolean initSecondCard() {
+		
+		JPanel contentsInfoPanel = new JPanel();
+		contentsInfoPanel.setBackground(Color.black);
+		contentsInfoPanel.setPreferredSize(new Dimension(400,150));
+		contentsInfoPanel.setLayout(SL);
+		
+		JButton finishButton = new JButton("Concluir");
+		finishButton.addActionListener(this);
+//		finishButton.setActionCommand("disable");
+		finishButton.setEnabled(false);;
+		
+		menu2Contents.removeAll(menu2Contents);
+		contentsInfoPanel.removeAll();
+		
+		JCheckBox option1 = new JCheckBox("");
+		JCheckBox option2 = new JCheckBox("");
+		JCheckBox option3 = new JCheckBox("");
+		
+		
+		
+		try {
+			CheckList cl = (CheckList)FileManager.load("checkList.save");
+			
+			addFixedTextField("CLTittle", cl.getName(), 50, 50, menu2Contents);
+//			addFixedTextField("CLTask1", cl.getTasks(0), 50, 20, menu2Contents);
+//			addFixedTextField("CLTask2", cl.getTasks(1), 50, 20, menu2Contents);
+//			addFixedTextField("CLTask3", cl.getTasks(2), 50, 20, menu2Contents);
+			option1.setText(cl.getTasks(0));
+			option2.setText(cl.getTasks(1));
+			option3.setText(cl.getTasks(2));
+			
+			menu2Contents.add(option1);
+			menu2Contents.add(option2);
+			menu2Contents.add(option3);
+			
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		menu2Panel.removeAll();
+		
+		SL.putConstraint(SpringLayout.NORTH, menu2Contents.get(0), 20, SpringLayout.NORTH, contentsInfoPanel);
+		SL.putConstraint(SpringLayout.WEST, menu2Contents.get(0), 50, SpringLayout.WEST, contentsInfoPanel);
+
+		SL.putConstraint(SpringLayout.NORTH, option1, 5, SpringLayout.SOUTH, menu2Contents.get(0));
+		SL.putConstraint(SpringLayout.WEST, option1, 50, SpringLayout.WEST, contentsInfoPanel);
+		SL.putConstraint(SpringLayout.NORTH, option2, 5, SpringLayout.SOUTH, option1);
+		SL.putConstraint(SpringLayout.WEST, option2, 50, SpringLayout.WEST, contentsInfoPanel);
+		SL.putConstraint(SpringLayout.NORTH, option3, 5, SpringLayout.SOUTH, option2);
+		SL.putConstraint(SpringLayout.WEST, option3, 50, SpringLayout.WEST, contentsInfoPanel);
+
+		SL.putConstraint(SpringLayout.SOUTH, contentsInfoPanel, 20, SpringLayout.SOUTH, menu2Contents.get(3));	
+		
+		
+		for(int i = 0; i < menu2Contents.size(); i++) {
+	
+			contentsInfoPanel.add(menu2Contents.get(i));
+			
+		}
+		
+		
+		
+//		menu2Contents.get(0).setMaximumSize(new Dimension(500,50));
+		menu2Panel.add(contentsInfoPanel);
+		menu2Panel.add(finishButton);
+		
+		CL.show(menusPanel, menuOptions[1]);
+		menuSelector.setSelectedIndex(1);
+		
+		return true;
+		
+	}
+	
+	public void initThirdCard() {	
+		
+		menu3Panel.removeAll();
+		
+//		menu3Contents.remove(0);
+//		menu3Contents.remove(1);
+//		menu3Contents.remove(2);
+//		menu3Contents.remove(3);
+//		
+//		menu3Contents.clear();
+		
+		
+		JLabel lastCLWarning = new JLabel("Esta foi a ultima CL que voce concluiu! Parabens!");
+		lastCLWarning.setOpaque(true);
+		lastCLWarning.setBackground(Color.pink);
+		
+		JLabel lastCLWarning2 = new JLabel("Que tal fazer outra CL?");
+		lastCLWarning2.setOpaque(true);
+		lastCLWarning2.setBackground(Color.pink);
+		
+		JButton newCL = new JButton("Fa�a outra CL! Clique >AQUI<!!!");
+		
+		JPanel contentsInfoPanel = new JPanel();
+		contentsInfoPanel.setBackground(Color.magenta);
+		contentsInfoPanel.setPreferredSize(new Dimension(400,150));
+		
+		
+		menu3Contents.removeAll(menu3Contents);
+		contentsInfoPanel.removeAll();
+		
+		try {
+			CheckList cl = (CheckList) FileManager.load("checkList.save");
+			
+			addFixedTextField("CLTittle", cl.getName(), 50, 50, menu3Contents);
+			addFixedTextField("CLTask1", cl.getTasks(0), 50, 20, menu3Contents);
+			addFixedTextField("CLTask2", cl.getTasks(1), 50, 20, menu3Contents);
+			addFixedTextField("CLTask3", cl.getTasks(2), 50, 20, menu3Contents);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for(int i = 0; i < menu3Contents.size(); i++) {
+			
+			menu3Contents.get(i).setBackground(Color.pink);
+			contentsInfoPanel.add(menu3Contents.get(i));
+			
+		}
+		
+		
+
+		menu3Panel.add(lastCLWarning);
+		menu3Panel.add(contentsInfoPanel);
+		menu3Panel.add(lastCLWarning2);
+		menu3Panel.add(newCL);
+		
+		newCL.addActionListener( e -> {
+			
+			CL.show(menusPanel, menuOptions[0]);
+			menuSelector.setSelectedIndex(0);
+			
+			menu1Contents.get(0).setText(null);
+			menu1Contents.get(1).setText(null);
+			menu1Contents.get(2).setText(null);
+			menu1Contents.get(3).setText(null);
+//			menu3Panel.removeAll();
+			
+		});
+		
+		CL.show(menusPanel, menuOptions[2]);
+		menuSelector.setSelectedIndex(2);
+	}
+	public void createChecklist() {
+		
+		String[] listInfo = new String[menu1Contents.size()];
+		
+		for(int i = 0; i < menu1Contents.size(); i++) {
+			
+			listInfo[i] = (String) menu1Contents.get(i).getText();
+			
+		}
+		CheckList cl = new CheckList(listInfo[0], listInfo[1], listInfo[2], listInfo[3]);
+		try {
+			FileManager.save(cl, "checkList.save");
+		} catch (Exception e) {
+			System.out.println("couldn't save your checklist: " + e.getMessage());
+		}
+		
+		initSecondCard();
+		
+	}
+	
 	public static void main(String[] args) {
 		Main main = new Main();
 		initGUI();
@@ -184,48 +371,10 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 		
 	}
 	
-	public void createChecklist(String listname, String task1name, String task2name, String task3name) {
-		
-		menu2Panel.removeAll();
-		JComponent creationPanel = (JComponent) menu1Panel.getComponent(0);
-		JTextField creationPanelTFTs;
-		for(int i = 0; i < creationPanel.getComponentCount(); i++) {
-		
-			System.out.println("modifying mt text fields");
-			
-			creationPanelTFTs = (JTextField) creationPanel.getComponent(i);
-			creationPanelTFTs.setText(null);
-			
-		}
-		
-		CheckList list = new CheckList(listname, task1name, task2name, task3name);
-		System.out.println("checklist created");
-		
-		CL.show(menusPanel, menuOptions[1]);
-		menuSelector.setSelectedIndex(1);
-		
-		addFixedTextField("checklistTitle", listname, 50,50);
-		addFixedTextField("checklistTask1", task1name, 50,20);
-		addFixedTextField("checklistTask2", task2name, 50,20);
-		addFixedTextField("checklistTask3", task3name, 50,20);
-		
-		JPanel contentsInfoPanel = new JPanel();
-		contentsInfoPanel.setBackground(Color.black);
-		contentsInfoPanel.setPreferredSize(new Dimension(300,200));
-		
-		for(int i = 0; i < menu2Contents.size(); i++) {
-			
-			contentsInfoPanel.add(menu2Contents.get(i));
-			
-		}
-				
-		menu2Panel.add(contentsInfoPanel);
-		
-	}
-	
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
+		Object source = e.getItemSelectable();
 		
 		CL.show(menusPanel, (String)e.getItem());
 		
@@ -233,14 +382,22 @@ public class Main extends JPanel implements ItemListener, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-				
+		
 		JButton createButton = (JButton) menu1Panel.getComponent(1);
 		
 		if(e.getSource() == createButton) {
 			
 			System.out.println("create button pressed");
 			
-			initSecondCard();
+			createChecklist();
+			
+		}
+		
+		JButton finishButton = (JButton) menu2Panel.getComponent(1);
+		
+		if(e.getSource() == finishButton) {
+			
+			initThirdCard();
 			
 		}
 		
